@@ -1,0 +1,14 @@
+.ham-container{
+  position: absolute;
+  right: 1.25rem;
+}
+
+.hamburger{
+  background-image: url('../assets/shared/mobile/icon-hamburger.svg');
+  background-size: cover;
+  border-radius: 0;
+  height: 17px;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}

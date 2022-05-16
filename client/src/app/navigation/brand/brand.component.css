@@ -1,0 +1,18 @@
+.brand-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 2.5625rem;
+  margin: auto 0 auto 1.5rem;
+
+}
+
+h6{
+  color: #FFFFFF;
+  letter-spacing: -0.19px;
+}
+
+p{
+  color: #FFFFFFBF;
+  font-weight: 400;
+}

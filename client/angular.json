@@ -51,7 +51,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles/defaults.css"
+              "src/styles/default.css",
+              "src/styles/mobile.css",
+              "src/styles/tablet.css",
+              "src/styles/desktop.css"
             ],
             "scripts": []
           },

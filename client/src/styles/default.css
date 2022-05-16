@@ -2,19 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
 
 :root{
-  --size-24: 1.5rem;
-  --size-16: 1rem;
-  --size-35: 2.1875rem;
-  --size-20: 1.25rem;
-  --size-29: 1.8125rem;
-  --size-18: 1.125rem;
-  --size-26: 1.625rem;
-  --size-14: 0.875rem;
-  --size-23: 1.4375rem;
-  --size-15: 0.9375rem;
-  --size-22: 1.375rem;
-  --size-13: 0.8125rem;
-  --size-19: 1.1875rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --h4-font-size: 0.875rem;
+  --h5-font-size: 1rem;
+  --h6-font-size: 0.9375rem;
+  --p-font-size: 0.8125rem;
+  --h1-line-height: 1.5rem;
+  --h2-line-height: 1.25rem;
+  --h3-line-height: 1.125rem;
+  --h4-line-height: 0.875rem;
+  --h5-line-height: 1rem;
+  --h6-line-height: 0.9375rem;
+  --p-line-height: 0.8125rem;
   --bold: 700;
   --regular: 400;
   --semi-bold: 600;
@@ -40,45 +41,50 @@ body{
 }
 
 h1{
-  font-size: var(--size-24);
+  font-size: var(--h1-font-size);
   font-weight: var(--bold);
+  line-height: var(--h1-line-height);
   letter-spacing: 0.33px;
 }
 h2{
-  font-size: var(--size-20);
+  font-size: var(--h2-font-size);
   font-weight: var(--bold);
+  line-height: var(--h2-line-height);
   letter-spacing: -0.25px;
 }
 h3{
-  font-size: var(--size-18);
+  font-size: var(--h3-font-size);
   font-weight: var(--bold);
+  line-height: var(--h3-line-height);
   letter-spacing: -0.25px;
 }
 h4{
-  font-size: var(--size-14);
+  font-size: var(--h4-font-size);
   font-weight: var(--bold);
+  line-height: var(--h4-line-height);
   letter-spacing: -0.2px;
 }
 h5{
-  font-size: var(--size-16);
+  font-size: var(--h5-font-size);
   font-weight: var(--regular);
+  line-height: var(--h5-line-height);
 }
 h6{
-  font-size: var(--size-15);
+  font-size: var(--h6-font-size);
   font-weight: var(--regular);
+  line-height: var(--h6-line-height);
 }
 p{
-  font-size: var(--size-13);
+  font-size: var(--p-font-size);
   font-weight: var(--semi-bold);
+  line-height: var(--p-line-height);
 }
 
 button{
   border-radius: 10px;
   box-sizing: content-box;
   font-size: var(--size-14);
-  margin: auto;
-  display: block;
-  padding: 0.875rem 25px;
+  padding: 0.875rem 1.5625rem;
 }
 
 .purple{
