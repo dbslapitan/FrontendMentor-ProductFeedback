@@ -1,8 +1,14 @@
 <nav>
   <app-brand></app-brand>
-  <div class="ham-container">
-    <button class="hamburger"></button>
-    <div class="ham-hide">
+  <a class="ham-container" (click)="toggleNavigation()" href="#">
+    <svg class="hamburger"></svg>
+  </a>
+  <div class="nav-container toggle">
+    <div class="inner-nav-container">
+      <app-category></app-category>
+      <app-road-map></app-road-map>
     </div>
   </div>
 </nav>
+<main>
+</main>
