@@ -14,9 +14,7 @@ export class SortAndFilterComponent implements OnInit {
 
   clickCheck() {
     const dropdownOptions = document.querySelector('.sort-button')!;
-    console.log(dropdownOptions)
     dropdownOptions.classList.toggle('toggle');
-    console.log(dropdownOptions.classList);
   }
 
 }
