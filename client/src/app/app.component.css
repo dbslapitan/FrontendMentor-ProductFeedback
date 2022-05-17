@@ -32,7 +32,7 @@
   right: 0;
   top: 0;
   width: 100%;
-  z-index: -100;
+  z-index: 1;
 }
 .nav-container.toggle{
   height: 0;

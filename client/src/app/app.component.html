@@ -1,5 +1,7 @@
-<nav>
+<header>
   <app-brand></app-brand>
+</header>
+<nav>
   <a class="ham-container" (click)="toggleNavigation()" href="#">
     <svg class="hamburger"></svg>
   </a>
@@ -11,4 +13,6 @@
   </div>
 </nav>
 <main>
+  <app-sort-and-filter></app-sort-and-filter>
+  <app-feedback></app-feedback>
 </main>

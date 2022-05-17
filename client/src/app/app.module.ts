@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { BrandComponent } from './navigation/brand/brand.component';
 import { CategoryComponent } from './navigation/category/category.component';
 import { RoadMapComponent } from './navigation/road-map/road-map.component';
+import { SortAndFilterComponent } from './main/sort-and-filter/sort-and-filter.component';
+import { FeedbackComponent } from './main/feedback/feedback.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BrandComponent,
     CategoryComponent,
-    RoadMapComponent
+    RoadMapComponent,
+    SortAndFilterComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

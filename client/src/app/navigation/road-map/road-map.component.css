@@ -26,9 +26,6 @@ td:nth-child(1) {
   gap: 1rem;
 }
 
-td > div {
-}
-
 tr > th{
   display: flex;
   justify-content: space-between;
