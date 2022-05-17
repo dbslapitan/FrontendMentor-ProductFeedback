@@ -6,3 +6,7 @@ header{
   position: relative;
   z-index: 100;
 }
+
+main{
+  height: 89.2065vh;
+}
