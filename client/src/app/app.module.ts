@@ -6,9 +6,12 @@ import { AppComponent } from './app.component';
 import { BrandComponent } from './navigation/brand/brand.component';
 import { CategoryComponent } from './navigation/category/category.component';
 import { RoadMapComponent } from './navigation/road-map/road-map.component';
-import { SortAndFilterComponent } from './main/sort-and-filter/sort-and-filter.component';
-import { NoFeedbackComponent } from './main/suggestions/no-feedback/no-feedback.component';
-import { FeedbackComponent } from './main/suggestions/feedback/feedback.component';
+import { SortAndFilterComponent } from './main/feedback-list/sort-and-filter/sort-and-filter.component';
+import { NoFeedbackComponent } from './main/feedback-list/no-feedback/no-feedback.component';
+import { FeedbackDetailComponent } from './main/feedback-detail/feedback-detail.component';
+import { FeedbackCreateComponent } from './main/feedback-create/feedback-create.component';
+import { FeedbackEditComponent } from './main/feedback-edit/feedback-edit.component';
+import { FeedbackComponent } from './main/feedback-list/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { FeedbackComponent } from './main/suggestions/feedback/feedback.componen
     RoadMapComponent,
     SortAndFilterComponent,
     NoFeedbackComponent,
+    FeedbackDetailComponent,
+    FeedbackCreateComponent,
+    FeedbackEditComponent,
     FeedbackComponent,
   ],
   imports: [

@@ -38,6 +38,7 @@
 
 body{
   font-family: 'Jost', sans-serif;
+  background-color: var(--F7F8FD-color);
 }
 
 h1{

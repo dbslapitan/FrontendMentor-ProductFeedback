@@ -1,4 +1,6 @@
 button{
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
   height: 71.4286%;
   margin-right: 6.4%;
   padding: 0 0.625rem;
@@ -57,7 +59,7 @@ input[type="radio"]:checked + label > span{
 }
 
 input[type="radio"]:checked + label::after{
-  content: url('../../../assets/shared/icon-check.svg');
+  content: url('../../../../assets/shared/icon-check.svg');
   margin-right: 1rem;
 }
 
@@ -80,7 +82,7 @@ li:last-of-type{
 }
 
 .down-arrow{
-  mask: url("../../../assets/shared/icon-arrow-down.svg");
+  mask: url("../../../../assets/shared/icon-arrow-down.svg");
   background-color: #FFFFFF;
   mask-repeat: no-repeat;
   background-size: cover;
@@ -93,6 +95,7 @@ li:last-of-type{
   background-color: #373F68;
   height: 8.3958%;
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 .inner-container{
@@ -104,13 +107,18 @@ li:last-of-type{
 }
 
 .plus-icon{
-  background-image: url("../../../assets/shared/icon-plus.svg");
+  background-image: url("../../../../assets/shared/icon-plus.svg");
   height: 8px;
   width: 8px;
 }
 
 .value{
   font-weight: var(--bold);
+}
+
+.sort-button{
+  background-color: #FFFFFF;
+  z-index: 1000;
 }
 
 .sort-button.toggle{

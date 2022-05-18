@@ -1,0 +1,48 @@
+button{
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  line-height: 3.07;
+  margin-top: 1.5rem;
+}
+
+h3{
+  color: var(--3A4374-color);
+}
+
+p{
+  color: var(--647196-color);
+  margin-top: 1rem;
+}
+
+.container-group{
+  margin: auto;
+  position: relative;
+  top: 3.5rem;
+  width: 81.0153%;
+}
+
+.no-feedback-container{
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  height: 28.75rem;
+  margin: 2rem auto 3rem auto;
+  text-align: center;
+  width: 87.2%;
+}
+
+
+.no-feedback-image{
+  background-image: url('../../../../assets/suggestions/illustration-empty.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  
+}
+
+.plus-icon{
+  background-image: url("../../../../assets/shared/icon-plus.svg");
+  height: 8px;
+  width: 8px;
+}

@@ -1,7 +1,10 @@
 header{
   align-items: center;
   background: #28a7ed;
-  background: linear-gradient(50deg, #28a7ed 0%, #a337f6 50%, #e84d70 100%);
+  background-image: url('../assets/suggestions/mobile/background-header.png');
+  background-position: top right bottom left;
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 4.5rem;
   position: relative;
   z-index: 100;
