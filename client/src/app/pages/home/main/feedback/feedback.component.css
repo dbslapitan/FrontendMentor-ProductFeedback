@@ -1,0 +1,114 @@
+button{
+  background-color: var(--F2F4FF-color);
+  border-radius: 10px;
+  color: var(--4661E6-color);
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: var(--semi-bold);
+  line-height: 2.3077;
+  margin-top: 0.5rem;
+  padding: 0 1rem;
+  text-decoration: none;
+}
+
+button:hover{
+  cursor: pointer;
+  background-color: #CFD7FF;
+}
+
+h4{
+  color: var(--3A4374-color);
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  letter-spacing: -0.0138px;
+  margin-top: 1.5rem;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+input[type="checkbox"]:checked + label{
+  background-color: var(--4661E6-color);
+  color: white;
+}
+
+input[type="checkbox"]:checked + label > svg{
+  background-color: white;
+}
+
+label{
+  align-items: center;
+  background-color: #F2F4FE;
+  border-radius: 10px;
+  color: var(--3A4374-color);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  height: 2rem;
+  justify-content: space-evenly;
+  letter-spacing: -0.0138em;
+  width: 4.3125rem;
+}
+
+
+label:hover{
+  background-color: #CFD7FF;
+}
+
+p{
+  color: var(--647196-color);
+  font-size: 0.8125rem;
+  font-weight: var(--regular);
+  margin-top: 0.5625rem;
+}
+
+span{
+  align-items: center;
+  color: var(--3A4374-color);
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  letter-spacing: -0.0138em;
+  margin-left: 0.25rem;
+}
+
+.feedback-container{
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 0 auto 1rem auto;
+  width: 87.2%;
+}
+
+.feedback-inner-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 1.5rem;
+  width: 85.0153%;
+}
+
+.comment-container{
+  align-items: center;
+  display: flex;
+}
+
+.button-container{
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.upvote-container{
+  height: fit-content;
+  width: fit-content;
+}
+
+.up-arrow{
+  background-color: var(--4661E6-color);
+  mask: url('../../../../../assets/shared/icon-arrow-up.svg');
+  height: 7px;
+  width: 10px;
+}
