@@ -1,0 +1,1 @@
+export enum Sort {"Most Upvote", "Least Upvote", "Most Comment", "Least Comment"};

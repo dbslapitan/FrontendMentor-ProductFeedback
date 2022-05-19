@@ -36,6 +36,13 @@
   padding: 0;
 }
 
+button,input, select, textarea {
+  font-family : inherit;
+  font-size : 100%;
+  appearance: none;
+  width: 100%;
+}
+
 body{
   font-family: 'Jost', sans-serif;
   background-color: var(--F7F8FD-color);

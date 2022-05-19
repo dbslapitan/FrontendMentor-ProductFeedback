@@ -7,7 +7,7 @@
 }
 
 .hamburger{
-  background-image: url('../../../assets/shared/mobile/icon-hamburger.svg');
+  background-image: url('../../../assets/shared/mobile/icon-close.svg');
   background-size: cover;
   border-radius: 0;
   height: 1.0625rem;
@@ -20,7 +20,7 @@
   z-index: 100;
 }
 .hamburger.toggle{
-  background-image: url('../../../assets/shared/mobile/icon-close.svg');
+  background-image: url('../../../assets/shared/mobile/icon-hamburger.svg');
 }
 
 .nav-container{
@@ -32,11 +32,12 @@
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 .nav-container.toggle{
   height: 0;
   display: none;
+  z-index: 1;
 }
 .inner-nav-container{
   background-color: var(--F2F4FF-color);

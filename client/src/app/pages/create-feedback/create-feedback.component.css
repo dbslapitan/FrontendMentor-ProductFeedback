@@ -1,0 +1,35 @@
+a{
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  margin-left: 1.5rem;
+  text-decoration: none;
+  width: 4.4794rem;
+}
+
+a::before{
+  content: url('../../../assets/shared/icon-arrow-left.svg');
+}
+
+svg{
+  background-image: url('../../../assets/shared/icon-new-feedback.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 2.5rem;
+  position: absolute;
+  top: -50%;
+  width: 2.5rem;
+}
+
+.form-container{
+  border-radius: 10px;
+  margin: 0 auto 4.8125rem auto;
+  position: relative;
+  width: 87.2%;
+}
+
+.center-items{
+  width: 85.3211%;
+  margin: 0 auto;
+}

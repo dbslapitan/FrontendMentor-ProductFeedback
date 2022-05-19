@@ -10,6 +10,8 @@ import { SortAndFilterComponent } from './pages/home/main/sort-and-filter/sort-a
 import { NoFeedbackComponent } from './pages/home/main/no-feedback/no-feedback.component';
 import { FeedbackComponent } from './pages/home/main/feedback/feedback.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CreateFeedbackComponent } from './pages/create-feedback/create-feedback.component';
+import { ToggleOptionsDirective } from './shared/directives/toggle-options.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { HomeComponent } from './pages/home/home.component';
     NoFeedbackComponent,
     FeedbackComponent,
     HomeComponent,
+    CreateFeedbackComponent,
+    ToggleOptionsDirective,
   ],
   imports: [
     BrowserModule,

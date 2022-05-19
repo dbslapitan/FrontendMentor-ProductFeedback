@@ -1,27 +1,27 @@
 <div class="sort-and-filter-container">
   <div class="inner-container">
-    <div class="select-sort" (click)="clickCheck()">
-      <span>Sort by :&nbsp;<span class="value">Most Upvotes</span></span>
+    <div class="select-sort">
+      <span>Sort by :&nbsp;<span class="value">{{sortSelected}}</span></span>
       <svg class="down-arrow"></svg>
-      <ul class="sort-button toggle">
+      <ul class="sort-button toggle" ToggleOptions>
         <li>
-          <input type="radio" name="sort" value="0" id="most-upvotes" checked>
+          <input type="radio" name="sort" value="0" id="most-upvotes" (change)="selectAndClose($event)" checked>
           <label for="most-upvotes"><span>Most Upvotes</span></label>
         </li>
         <li>
-          <input type="radio" name="sort" value="1" id="least-upvotes">
+          <input type="radio" name="sort" value="1" id="least-upvotes" (change)="selectAndClose($event)">
           <label for="least-upvotes"><span>Least Upvotes</span></label>
         </li> 
         <li>
-          <input type="radio" name="sort" value="2" id="most-comments">
+          <input type="radio" name="sort" value="2" id="most-comments" (change)="selectAndClose($event)">
           <label for="most-comments"><span>Most Comments</span></label>
         </li>
         <li>
-          <input type="radio" name="sort" value="3" id="least-comments">
+          <input type="radio" name="sort" value="3" id="least-comments" (change)="selectAndClose($event)">
           <label for="least-comments"><span>Least Comments</span></label>
         </li>
       </ul>
     </div>
-    <button class="purple"><svg class="plus-icon"></svg> Add Feedback</button>
+    <a class="purple" routerLink="/create"><svg class="plus-icon"></svg> Add Feedback</a>
   </div>
 </div>
