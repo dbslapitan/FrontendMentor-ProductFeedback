@@ -10,9 +10,7 @@ export class ToggleOptionsDirective {
       this.elemRef.nativeElement.classList.toggle('toggle');
     }
     else{
-      if(!this.elemRef.nativeElement.classList.contains('toggle')){
-        this.elemRef.nativeElement.classList.toggle('toggle');
-      }
+      this.renderer.addClass(this.elemRef.nativeElement, 'toggle');
     };
   }
   constructor(private elemRef: ElementRef, private renderer: Renderer2) { }

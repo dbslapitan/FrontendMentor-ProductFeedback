@@ -6,19 +6,19 @@
       <ul class="sort-button toggle" ToggleOptions>
         <li>
           <input type="radio" name="sort" value="0" id="most-upvotes" (change)="selectAndClose($event)" checked>
-          <label for="most-upvotes"><span>Most Upvotes</span></label>
+          <label for="most-upvotes"><span (click)="closed()">Most Upvotes</span></label>
         </li>
         <li>
           <input type="radio" name="sort" value="1" id="least-upvotes" (change)="selectAndClose($event)">
-          <label for="least-upvotes"><span>Least Upvotes</span></label>
+          <label for="least-upvotes"><span (click)="closed()">Least Upvotes</span></label>
         </li> 
         <li>
           <input type="radio" name="sort" value="2" id="most-comments" (change)="selectAndClose($event)">
-          <label for="most-comments"><span>Most Comments</span></label>
+          <label for="most-comments"><span (click)="closed()">Most Comments</span></label>
         </li>
         <li>
           <input type="radio" name="sort" value="3" id="least-comments" (change)="selectAndClose($event)">
-          <label for="least-comments"><span>Least Comments</span></label>
+          <label for="least-comments" ><span (click)="closed()">Least Comments</span></label>
         </li>
       </ul>
     </div>

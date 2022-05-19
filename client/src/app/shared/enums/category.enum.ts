@@ -1,1 +1,1 @@
-export enum Category {ALL, UI, UX, Enhancement, Bug, Feature}; 
+export enum Category {UI, UX, Enhancement, Bug, Feature}; 

@@ -2,10 +2,41 @@
 <div class="form-container">
   <svg class="new-feedback"></svg>
   <div class="center-items">
+    <h3>Create New Feedback</h3>
     <label for="title">Feedback Title</label>
     <p>Add a short, descriptive headline</p>
     <input type="text" name="title" id="title">
     <label for="category">Category</label>
     <p>Choose a category for your feedback</p>
+    <div class="category-dropdown">
+      <ul class="dropdown-list toggle" ToggleOptions>
+        <li>
+          <input type="radio" name="categorySelect" id="feature" value="4" (change)="selectAndClose($event)" checked>
+          <label for="feature" (click)="closed()">Feature</label>
+        </li>
+        <li>
+          <input type="radio" name="categorySelect" id="ui" value="0" (change)="selectAndClose($event)">
+          <label for="ui" (click)="closed()">UI</label>
+        </li>
+        <li>
+          <input type="radio" name="categorySelect" id="ux" value="1" (change)="selectAndClose($event)">
+          <label for="ux" (click)="closed()">UX</label>
+        </li>
+        <li>
+          <input type="radio" name="categorySelect" id="enhancement" value="2" (change)="selectAndClose($event)">
+          <label for="enhancement" (click)="closed()">Enhancement</label>
+        </li>
+        <li>
+          <input type="radio" name="categorySelect" id="bug" value="3" (change)="selectAndClose($event)">
+          <label for="bug" (click)="closed()">Bug</label>
+        </li>
+      </ul>
+      <input class="category-display" [value]="categorySelected" readonly>
+    </div>
+    <label for="detail">Feedback Detail</label>
+    <p>Include any specific comments on what should be improved, added, etc.</p>
+    <textarea name="detail" id="detail" cols="30" rows="5"></textarea>
+    <button class="purple" type="submit">Add Feedback</button>
+    <button class="dark-blue">Cancel</button>
   </div>
 </div>

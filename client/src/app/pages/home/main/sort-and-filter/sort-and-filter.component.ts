@@ -17,9 +17,11 @@ export class SortAndFilterComponent implements OnInit {
   }
 
   selectAndClose(event: Event){
-    const dropdownOptions = document.querySelector('.sort-button')!;
-    dropdownOptions.classList.toggle('toggle');
     this.sortSelected = Sort[+(event.target as HTMLInputElement).value];
+  }
+  closed(){
+    const dropdownList = document.querySelector('.sort-button')!;
+    dropdownList.classList.toggle('toggle');
   }
 
 }
