@@ -33,7 +33,7 @@ p{
 
 
 .no-feedback-image{
-  background-image: url('../../../../assets/suggestions/illustration-empty.svg');
+  background-image: url('../../../../../assets/suggestions/illustration-empty.svg');
   background-repeat: no-repeat;
   background-position: center;
   height: 100%;
@@ -42,7 +42,7 @@ p{
 }
 
 .plus-icon{
-  background-image: url("../../../../assets/shared/icon-plus.svg");
+  background-image: url("../../../../../assets/shared/icon-plus.svg");
   height: 8px;
   width: 8px;
 }

@@ -12,6 +12,8 @@ import { FeedbackComponent } from './pages/home/main/feedback/feedback.component
 import { HomeComponent } from './pages/home/home.component';
 import { CreateFeedbackComponent } from './pages/create-feedback/create-feedback.component';
 import { ToggleOptionsDirective } from './shared/directives/toggle-options.directive';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,16 @@ import { ToggleOptionsDirective } from './shared/directives/toggle-options.direc
     FeedbackComponent,
     HomeComponent,
     CreateFeedbackComponent,
-    ToggleOptionsDirective,
+    ToggleOptionsDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

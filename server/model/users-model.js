@@ -15,8 +15,8 @@ const Schema = new mongoose.Schema({
     required: [true, 'Password is Required.']
   },
   dateCreated: {
-    type: String,
-    default: new Date().toISOString()
+    type: Date,
+      default: Date.now()
   }
 });
 

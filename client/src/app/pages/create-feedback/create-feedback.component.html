@@ -1,13 +1,19 @@
 <a routerLink="../">Go Back</a>
 <div class="form-container">
   <svg class="new-feedback"></svg>
-  <div class="center-items">
+  <form class="center-items" [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
     <h3>Create New Feedback</h3>
     <label for="title">Feedback Title</label>
     <p>Add a short, descriptive headline</p>
-    <input type="text" name="title" id="title">
+    <input type="text" name="title" id="title" formControlName="title" required>
+    <div *ngIf="feedbackForm.controls['title'].invalid && (feedbackForm.controls['title'].dirty || feedbackForm.controls['title'].touched)" class="outline-error">
+      <div *ngIf="feedbackForm.controls['title'].errors?.['required']">
+        Name is required.
+      </div>
+    </div>
     <label for="category">Category</label>
     <p>Choose a category for your feedback</p>
+    <input type="text" [value]="categorySelected" formControlName="category" hidden>
     <div class="category-dropdown">
       <ul class="dropdown-list toggle" ToggleOptions>
         <li>
@@ -31,12 +37,17 @@
           <label for="bug" (click)="closed()">Bug</label>
         </li>
       </ul>
-      <input type="text" class="category-display" [value]="categorySelected" readonly>
+      <input type="text" class="category-display" [value]="categorySelected" readonly required>
     </div>
-    <label for="detail">Feedback Detail</label>
+    <label for="details">Feedback Detail</label>
     <p>Include any specific comments on what should be improved, added, etc.</p>
-    <textarea name="detail" id="detail" cols="30" rows="5"></textarea>
-    <button class="purple" type="submit">Add Feedback</button>
+    <textarea name="details" id="details" cols="30" rows="5" formControlName="details" required></textarea>
+    <div *ngIf="feedbackForm.controls['details'].invalid && (feedbackForm.controls['details'].dirty || feedbackForm.controls['details'].touched)" class="outline-error">
+      <div *ngIf="feedbackForm.controls['details'].errors?.['required']">
+        Details is required.
+      </div>
+    </div>
+    <button class="purple" type="submit" [disabled]="feedbackForm.invalid">Add Feedback</button>
     <button class="dark-blue">Cancel</button>
-  </div>
+  </form>
 </div>

@@ -18,6 +18,10 @@ button{
   height: 2.5rem;
 }
 
+button[type='submit']{
+  margin-top: 2.5rem;
+}
+
 h3{
   margin-bottom: 1.5rem;
 }
@@ -25,6 +29,7 @@ h3{
 .center-items > label{
   align-items: center;
   box-sizing: border-box;
+  display: inline-flex;
   font-size: 0.8125rem;
   font-weight: var(--bold);
   height: 100%;
@@ -111,7 +116,6 @@ textarea{
   border-radius: 10px;
   font-size: 0.8125rem;
   font-weight: var(--regular);
-  margin-bottom: 2.5rem;
   margin-top: 1rem;
   padding: 1rem 1rem 0 1rem;
   resize: none;
@@ -193,4 +197,10 @@ ul[class="dropdown-list toggle"] + .category-display::after{
 
 ul[class='dropdown-list'] + span::after{
   content: url('../../../assets/shared/icon-arrow-up.svg');
+}
+
+.outline-error{
+  color: #D73737;
+  font-size: 0.875rem;
+  font-weight: var(--regular);
 }
