@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/shared/models/feedback.model';
 
 @Component({
   selector: 'app-feedback',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
+
+  @Input() feedback: Feedback = {};
 
   constructor() { }
 

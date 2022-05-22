@@ -7,4 +7,6 @@ router.route('/')
 .post(controller.createUser)
 .delete(controller.deleteUser);
 
+router.route('/check/:username').get(controller.checkUser);
+
 module.exports = router;

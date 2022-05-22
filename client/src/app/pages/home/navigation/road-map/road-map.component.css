@@ -38,14 +38,14 @@ tr > th{
   justify-content: space-between;
   width: 78.54%;
   margin: 0 auto;
-  margin-top: 1.1875rem;
 }
 
 .road-map-container{
+  box-sizing: border-box;
   background-color: #FFFFFF;
   border-radius: 10px;
-  height: 26.69%;
   margin: 1.5rem auto 0 auto;
+  padding: 1.5rem 0 2.25rem 0;
   width: 82.29%;
 }
 

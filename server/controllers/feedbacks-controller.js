@@ -15,7 +15,6 @@ module.exports.getAllFeedback = (req, res, next) => {
 };
 
 module.exports.createFeedback = (req, res, next) => {
-  console.log(req.body);
   Feedback.create(req.body)
   .then(feedback => {
     res.status(201).json({

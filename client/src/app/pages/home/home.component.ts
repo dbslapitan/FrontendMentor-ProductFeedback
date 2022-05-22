@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/shared/models/feedback.model';
+import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  feedbacks: Feedback[] = [];
+
+  constructor(httpRequestsServices: HttpRequestsService) {
+    
+    httpRequestsServices.getAllFeedback().subscribe(response => {
+      this.feedbacks = response.data;
+    });
+   }
 
   ngOnInit(): void {
+
   }
 
   toggleNavigation(){

@@ -1,14 +1,14 @@
 <div class="feedback-container">
   <div class="feedback-inner-container">
-    <h4>Add tags for solutions</h4>
-    <p>Easier to search for solutions based on a specific stack.</p>
+    <h4>{{feedback.title}}</h4>
+    <p>{{feedback.details}}</p>
     <div class="button-container">
-      <button>Enhancement</button>
+      <button>{{feedback.category}}</button>
     </div>
     <div class="upvote-container">
       <input type="checkbox" id="upvote">
       <label for="upvote">
-        <svg class="up-arrow"></svg>112</label>
+        <svg class="up-arrow"></svg>{{feedback.upvotes}}</label>
     </div>
     <div class="comment-container">
       <img src="../../../../assets/shared/icon-comments.svg" alt="Number of Comments">

@@ -1,9 +1,9 @@
 export interface Feedback{
   _id?: String,
-  title: String,
-  category: String,
+  title?: String,
+  category?: String,
   upvotes?: Number,
   status?: String,
-  details: String,
+  details?: String,
   dateCreated?: Date
 }

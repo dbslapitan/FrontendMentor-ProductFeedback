@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { interval, timeInterval } from 'rxjs';
+import { FormBuilder, Validators} from '@angular/forms';
 import { Category } from 'src/app/shared/enums/category.enum';
-import { Status } from 'src/app/shared/enums/status.enum';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
-import { FeedbackComponent } from '../home/main/feedback/feedback.component';
 
 @Component({
   selector: 'app-create-feedback',
@@ -38,11 +35,9 @@ export class CreateFeedbackComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.feedbackForm.getRawValue());
     this.httpRequestServices.createAndPostFeedback(this.feedbackForm.getRawValue())
     .subscribe(response => {
       console.log(response.message);
     });
   }
-
 }

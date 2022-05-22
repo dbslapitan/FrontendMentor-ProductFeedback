@@ -1,0 +1,60 @@
+input{
+  margin: 0;
+}
+
+input[type="password"]{
+  font: caption;
+}
+
+input[type="text"]:focus, textarea:focus, input[type="password"]:focus{
+  outline: 1px solid #4661E6;
+}
+
+form a{
+  color: blue;
+  font-weight: var(--regular);
+}
+
+button{
+  height: 2.5rem;
+}
+
+button[type='submit']{
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+form{
+  margin: auto;
+  width: 85.3211%;
+}
+
+form label{
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: var(--semi-bold);
+  margin-top: 1rem;
+}
+
+form h1{
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+form p {
+  text-align: center;
+}
+
+.sign-up-container{
+  align-items: center;
+  width: 100vw;
+}
+
+.sign-up-content{
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 87.2%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}

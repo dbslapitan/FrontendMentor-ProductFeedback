@@ -1,0 +1,38 @@
+<a class="back-link" routerLink="../">Go Back</a>
+<div class="sign-up-container">
+  <div class="sign-up-content">
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+      <h1>Sign Up</h1>
+      <p>Have an account? <a routerLink="/signin">Sign In</a></p>
+      <label for="username">Username</label>
+      <input type="text" name="username" formControlName="username">
+      <div *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)" class="outline-error">
+        <div *ngIf="signUpForm.controls['username'].errors?.['required']">
+          Username is required.
+        </div>
+        <div *ngIf="signUpForm.controls['username'].errors?.['usernameFormatError'] && !signUpForm.controls['username'].errors?.['required']">
+          Must only use alpha-numeric characters, dashes, underscores, and periods.
+        </div>
+        <div *ngIf="signUpForm.controls['username'].errors?.['usernameExists'] && !signUpForm.controls['username'].errors?.['required'] && !signUpForm.controls['username'].errors?.['usernameFormatError']">
+          Username is unavailable.
+        </div>
+      </div>
+      <label for="name">Name</label>
+      <input type="text" name="name" formControlName="name">
+      <div *ngIf="signUpForm.controls['name'].invalid && (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)" class="outline-error">
+        <div *ngIf="signUpForm.controls['name'].errors?.['required']">
+          First name is required.
+        </div>
+      </div>
+      <label for="password">Password</label>
+      <input type="password" name="password" formControlName="password">
+      <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="outline-error">
+        <div *ngIf="signUpForm.controls['password'].errors?.['required']">
+          Password is required.
+        </div>
+      </div>
+      <button type="submit" class="purple" [disabled]="!signUpForm.valid">Sign Up</button>
+      <button type="button" class="red">Cancel</button>
+    </form>
+  </div>
+</div>

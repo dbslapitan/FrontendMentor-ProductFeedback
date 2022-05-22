@@ -41,6 +41,9 @@
 }
 .inner-nav-container{
   background-color: var(--F2F4FF-color);
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   height: 100%;
   margin-left: auto;
   right: 0;

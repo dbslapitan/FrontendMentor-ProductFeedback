@@ -7,12 +7,20 @@
   </a>
   <div class="nav-container toggle" ToggleNav>
     <div class="inner-nav-container">
-      <app-category></app-category>
-      <app-road-map></app-road-map>
+      <div>
+        <app-category></app-category>
+        <app-road-map></app-road-map>
+      </div>
+      <div>
+        <app-authentication></app-authentication>
+      </div>
     </div>
   </div>
 </nav>
 <main>
   <app-sort-and-filter></app-sort-and-filter>
-  <app-feedback></app-feedback>
+  <div *ngIf="feedbacks">
+    <app-feedback *ngFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
+  </div>
+  <app-no-feedback *ngIf="!feedbacks"></app-no-feedback>
 </main>

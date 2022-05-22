@@ -36,11 +36,45 @@
   padding: 0;
 }
 
+a.back-link{
+  display: inline-flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  margin-bottom: 2.5rem;
+  margin-left: 1.5rem;
+  margin-top: 2.125rem;
+  text-decoration: none;
+  width: 4.4794rem;
+}
+
+a.back-link::before{
+  content: url('../assets/shared/icon-arrow-left.svg');
+}
+
+a.back-link:hover{
+  text-decoration: underline;
+}
+
 button,input, select, textarea {
   font-family : inherit;
   font-size : 100%;
   appearance: none;
   width: 100%;
+}
+
+button{
+  cursor: pointer;
+}
+
+button:disabled{
+  cursor: default;
+  background-color: lightgray;
+}
+
+button:disabled:hover{
+  cursor: default;
+  background-color: lightgray;
 }
 
 body{
@@ -94,6 +128,18 @@ button{
   font-size: var(--h4-line-height);
 }
 
+input{
+  background-color: var(--F7F8FD-color);
+  border: 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 0.8125rem;
+  font-weight: var(--regular);
+  height: 3rem;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
 .purple{
   background-color:var(--AD1FEA-color);
   color: var(--button-text);
@@ -124,4 +170,10 @@ button{
 }
 .red:hover{
   background-color: #E98888;
+}
+
+.outline-error{
+  color: #D73737;
+  font-size: 0.875rem;
+  font-weight: var(--regular);
 }

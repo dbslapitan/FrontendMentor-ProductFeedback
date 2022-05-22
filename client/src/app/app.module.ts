@@ -14,6 +14,9 @@ import { CreateFeedbackComponent } from './pages/create-feedback/create-feedback
 import { ToggleOptionsDirective } from './shared/directives/toggle-options.directive';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SignInComponent } from './pages/authentication/sign-in/sign-in.component';
+import { AuthenticationComponent } from './pages/home/navigation/authentication/authentication.component';
+import { SignUpComponent } from './pages/authentication/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { HttpClientModule } from '@angular/common/http';
     FeedbackComponent,
     HomeComponent,
     CreateFeedbackComponent,
-    ToggleOptionsDirective
+    ToggleOptionsDirective,
+    SignInComponent,
+    AuthenticationComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

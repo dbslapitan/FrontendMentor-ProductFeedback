@@ -1,0 +1,26 @@
+.button-link{
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 2.5rem;
+  width: 100%;
+  text-decoration: none;
+  border-radius: 10px;
+}
+
+.sign-up-container{
+  justify-self: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.sign-up-inner{
+  width: 82.29%;
+  margin: 0 auto;
+}
+
+p{
+  text-align: center;
+  font-weight: var(--regular);
+  margin-top: 0.5rem;
+}
