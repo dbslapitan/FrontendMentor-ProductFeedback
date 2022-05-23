@@ -5,8 +5,8 @@
     <button>{{feedback.category}}</button>
     <div class="counts">
       <div class="upvote-container">
-        <input type="checkbox" id="upvote">
-        <label for="upvote">
+        <input type="checkbox" [checked]="upvoteIsChecked">
+        <label (click)="toggleUpvote()">
           <svg class="up-arrow"></svg>{{feedback.upvotes}}</label>
       </div>
       <div class="comment-container">

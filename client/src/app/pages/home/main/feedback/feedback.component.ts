@@ -10,6 +10,8 @@ export class FeedbackComponent implements OnInit {
 
   @Input() feedback: Feedback = {};
 
+  upvoteIsChecked = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -21,5 +23,9 @@ export class FeedbackComponent implements OnInit {
 
   regularColor(title: HTMLHeadingElement){
     title.style.color = "#3A4374";
+  }
+
+  toggleUpvote(){
+    this.upvoteIsChecked = !this.upvoteIsChecked;
   }
 }
