@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authentication',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthenticationComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean = false;
+
+  constructor(private router: Router) { 
+  }
 
   ngOnInit(): void {
+    this.isLoggedIn = localStorage.getItem('userId') === null ? true : false;
+    console.log(this.isLoggedIn);
+  }
+
+  clearStorage(){
+    localStorage.clear();
+    this.isLoggedIn = true;
+
+    console.log("after logout", this.isLoggedIn);
+    const svg = document.querySelector('.hamburger')!;
+    const navContainer = document.querySelector('.nav-container')!;
+
+    svg.classList.toggle('toggle');
+    navContainer.classList.toggle('toggle');
   }
 
 }

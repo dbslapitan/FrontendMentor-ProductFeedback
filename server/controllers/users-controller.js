@@ -59,6 +59,7 @@ module.exports.authenticateUser = (req, res, next) => {
         return res.status(200).json({
           success: true,
           data: {
+            userId: response._id,
             username: response.username,
             name: response.name,
             token: token

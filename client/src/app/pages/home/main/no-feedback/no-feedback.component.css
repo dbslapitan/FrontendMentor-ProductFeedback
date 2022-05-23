@@ -1,9 +1,14 @@
-button{
+a{
+  align-items: center;
+  border-radius: 10px;
+  display: inline-flex;
   padding: 0 1rem;
   font-size: 0.8125rem;
   font-weight: var(--bold);
   line-height: 3.07;
   margin-top: 1.5rem;
+  text-decoration: none;
+  width: fit-content;
 }
 
 h3{

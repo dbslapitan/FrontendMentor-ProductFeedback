@@ -2,7 +2,7 @@
   <app-brand></app-brand>
 </header>
 <nav>
-  <a class="ham-container" (click)="toggleNavigation()" href="#">
+  <a class="ham-container" (click)="toggleNavigation()">
     <svg class="hamburger toggle"></svg>
   </a>
   <div class="nav-container toggle" ToggleNav>
@@ -22,5 +22,5 @@
   <div *ngIf="feedbacks">
     <app-feedback *ngFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
   </div>
-  <app-no-feedback *ngIf="!feedbacks"></app-no-feedback>
+  <app-no-feedback *ngIf="feedbacks.length === 0"></app-no-feedback>
 </main>

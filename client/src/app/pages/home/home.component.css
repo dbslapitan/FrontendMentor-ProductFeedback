@@ -1,3 +1,7 @@
+a:hover{
+  cursor: pointer;
+}
+
 .ham-container{
   position: absolute;
   right: 0;
@@ -32,7 +36,7 @@
   right: 0;
   top: 0;
   width: 100%;
-  z-index: 0;
+  z-index: 1;
 }
 .nav-container.toggle{
   height: 0;

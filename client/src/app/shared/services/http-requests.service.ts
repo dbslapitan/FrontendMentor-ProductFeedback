@@ -28,6 +28,6 @@ export class HttpRequestsService {
   }
 
   authenticateUser(credentials: {username: string, password: string}){
-    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string}}>(environment.URI + "users/login", credentials);
+    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string, userId?: string}}>(environment.URI + "users/login", credentials);
   }
 }

@@ -12,6 +12,7 @@ export class CreateFeedbackComponent implements OnInit {
 
   categorySelected = Category[4];
   feedbackForm = this.formBuilder.group({
+    userId: [localStorage.getItem('userId'), Validators.required],
     title: ['', Validators.required],
     category: ['Feature', Validators.required],
     details: ['', Validators.required]
@@ -20,6 +21,7 @@ export class CreateFeedbackComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private httpRequestServices: HttpRequestsService) { }
 
   ngOnInit(): void {
+
   }
 
   selectAndClose(event: Event){

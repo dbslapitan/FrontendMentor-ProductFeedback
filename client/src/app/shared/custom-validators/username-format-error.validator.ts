@@ -12,7 +12,6 @@ export function usernameExistError(httpRequestService: HttpRequestsService): Asy
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
     return httpRequestService .checkUserAvailability(control.value).pipe(
       map(res => {
-        console.log(res);
         // if res is true, username exists, return true
         return res.isFound ? { usernameExists: true } : null;
         // NB: Return null if there is no error

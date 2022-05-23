@@ -8,7 +8,7 @@
     <input type="text" name="title" id="title" formControlName="title" required>
     <div *ngIf="feedbackForm.controls['title'].invalid && (feedbackForm.controls['title'].dirty || feedbackForm.controls['title'].touched)" class="outline-error">
       <div *ngIf="feedbackForm.controls['title'].errors?.['required']">
-        Name is required.
+        Title is required.
       </div>
     </div>
     <label for="category">Category</label>

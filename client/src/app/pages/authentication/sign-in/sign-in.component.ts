@@ -28,6 +28,7 @@ export class SignInComponent implements OnInit {
         localStorage.setItem('name', response.data.name as string);
         localStorage.setItem('username', response.data.username as string);
         localStorage.setItem('token', response.data.token as string);
+        localStorage.setItem('userId', response.data.userId as string);
         this.router.navigate(['../']);
       }
       else{
