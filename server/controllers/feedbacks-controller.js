@@ -45,3 +45,17 @@ module.exports.deleteFeedback = (req, res, next) => {
       })
     });
 };
+
+module.exports.editSingleFeedback = (req, res, next) => {
+  Feedback.findByIdAndUpdate(req.body._id, {upvotes: req.body.upvotes}).then(response => {
+      res.status(200).json({
+        success: true,
+        message: `${response._id} has been successfully updated...`
+      });
+  }).catch(error => {
+    res.status(404).json({
+      success: true,
+      message: `Error occured...`
+    });
+  });
+};

@@ -15,7 +15,6 @@ export class AuthenticationComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = localStorage.getItem('userId') === null ? true : false;
-    console.log(this.isLoggedIn);
   }
 
   clearStorage(){

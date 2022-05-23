@@ -7,7 +7,7 @@
       <div class="upvote-container">
         <input type="checkbox" [checked]="upvoteIsChecked">
         <label (click)="toggleUpvote()">
-          <svg class="up-arrow"></svg>{{feedback.upvotes}}</label>
+          <svg class="up-arrow"></svg>{{feedback.upvotes?.length}}</label>
       </div>
       <div class="comment-container">
         <img src="../../../../assets/shared/icon-comments.svg" alt="Number of Comments">

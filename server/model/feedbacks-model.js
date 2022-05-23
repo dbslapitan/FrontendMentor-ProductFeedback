@@ -14,9 +14,9 @@ const Schema = new mongoose.Schema({
       required: true
     },
     upvotes: {
-      type: Number,
+      type: [String],
       required: true,
-      default: 0
+      default: []
     },
     status: {
       type: String,

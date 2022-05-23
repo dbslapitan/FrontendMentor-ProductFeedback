@@ -7,4 +7,6 @@ router.route('/')
 .post(controller.createFeedback)
 .delete(controller.deleteFeedback);
 
+router.route('/edit/:id').post(controller.editSingleFeedback);
+
 module.exports = router;

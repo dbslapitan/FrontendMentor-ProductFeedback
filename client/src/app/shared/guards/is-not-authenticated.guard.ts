@@ -13,7 +13,6 @@ export class IsNotAuthenticatedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const isAuthenticated = localStorage.getItem('token') !== null ? true : false;
-      console.log(isAuthenticated);
       if(isAuthenticated){
         this.router.navigate(['/']);
       }

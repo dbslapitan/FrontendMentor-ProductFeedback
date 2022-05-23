@@ -3,7 +3,7 @@ export interface Feedback{
   userID?: String,
   title?: String,
   category?: String,
-  upvotes?: Number,
+  upvotes?: String[],
   status?: String,
   details?: String,
   dateCreated?: Date
