@@ -31,6 +31,13 @@
           Password is required.
         </div>
       </div>
+      <div class="image-container">
+        <button class="image-btn" type="button" (click)="filePicker.click()">Select Image</button>
+        <input type="file" #filePicker (change)="onImagePick($event)" accept="image/jpeg, image/png" hidden>
+        <img [src]="imgUrl" alt="Preview Image" *ngIf="imgUrl">
+      </div>
+      <p class="img-error" *ngIf="!imgIsValid && imgHasSelected">Must be an image</p>
+      
       <button type="submit" class="purple" [disabled]="!signUpForm.valid">Sign Up</button>
       <button type="button" class="red">Cancel</button>
     </form>

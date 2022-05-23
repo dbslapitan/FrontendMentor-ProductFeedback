@@ -1,1 +1,27 @@
-<p>sign-in works!</p>
+<a class="back-link" routerLink="../">Go Back</a>
+<div class="sign-in-container">
+  <div class="sign-in-content">
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+      <h1>Sign Up</h1>
+      <p class="login-error" *ngIf="invalid">Invalid Username or Password</p>
+      <label for="username">Username</label>
+      <input type="text" name="username" formControlName="username" (keypress)="resetError()">
+      <div *ngIf="signInForm.controls['username'].invalid && (signInForm.controls['username'].dirty || signInForm.controls['username'].touched)" class="outline-error">
+        <div *ngIf="signInForm.controls['username'].errors?.['required']">
+          Username is required.
+        </div>
+      </div>
+      <label for="password">Password</label>
+      <input type="password" name="password" formControlName="password" (keypress)="resetError()">
+      <div *ngIf="signInForm.controls['password'].invalid && (signInForm.controls['password'].dirty || signInForm.controls['password'].touched)" class="outline-error">
+        <div *ngIf="signInForm.controls['password'].errors?.['required']">
+          Password is required.
+        </div>
+      </div>
+      <button type="submit" class="purple" [disabled]="!signInForm.valid">Sign Up</button>
+      <p>or</p>
+      <a class="dark-blue login-btn" routerLink="/signup">Sign Up</a>
+    </form>
+  </div>
+</div>
+

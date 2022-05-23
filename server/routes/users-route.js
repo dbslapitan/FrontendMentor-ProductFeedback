@@ -9,4 +9,6 @@ router.route('/')
 
 router.route('/check/:username').get(controller.checkUser);
 
+router.route('/login').post(controller.authenticateUser);
+
 module.exports = router;

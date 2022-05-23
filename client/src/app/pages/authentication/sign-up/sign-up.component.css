@@ -45,6 +45,11 @@ form p {
   text-align: center;
 }
 
+form  img{
+  height: 5rem;
+  width: 5rem;
+}
+
 .sign-up-container{
   align-items: center;
   width: 100vw;
@@ -57,4 +62,29 @@ form p {
   width: 87.2%;
   margin: 0 auto;
   padding: 1.5rem;
+}
+
+.image-btn{
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: var(--regular);
+  width: 50%;
+  margin-top: 1rem;
+  background-color: cornflowerblue;
+}
+
+.image-container{
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+img{
+  border-radius: 50%;
+}
+
+.img-error{
+  font-weight: var(--regular);
+  color: #D73737;
 }

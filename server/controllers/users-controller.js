@@ -1,5 +1,7 @@
 const { response } = require('express');
 const User = require('../model/users-model');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 module.exports.getAllUser = (req, res, next) => {
   User.find().then(users => {
@@ -30,8 +32,6 @@ module.exports.checkUser = (req, res, next) => {
       data: error
     });
   });
-    
-  
 }
 
 module.exports.createUser = (req, res, next) => {
@@ -47,6 +47,38 @@ module.exports.createUser = (req, res, next) => {
         data: error
       });
     });
+};
+
+module.exports.authenticateUser = (req, res, next) => {
+  User.findOne({username: req.body.username})
+  .then(response => {
+    if(response){
+      const SECRET = process.env.SECRET;
+      bcrypt.compare(req.body.password, response.password).then(match => {
+        const token = jwt.sign({username: response.username, name: response.name}, SECRET, {expiresIn: "2h"});
+        return res.status(200).json({
+          success: true,
+          data: {
+            username: response.username,
+            name: response.name,
+            token: token
+          }
+        });
+      })
+    }  
+    else{
+      return res.status(200).json({
+        success: false,
+        data: {}
+      });
+    }
+  })
+  .catch(error => {
+    return res.status(404).json({
+      success: false,
+      data: error
+    });
+  });
 };
 
 module.exports.deleteUser = (req, res, next) => {

@@ -26,4 +26,8 @@ export class HttpRequestsService {
   checkUserAvailability(username: string){
     return this.http.get<{isFound: boolean}>(environment.URI + "users/check/" + username);
   }
+
+  authenticateUser(credentials: {username: string, password: string}){
+    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string}}>(environment.URI + "users/login", credentials);
+  }
 }
