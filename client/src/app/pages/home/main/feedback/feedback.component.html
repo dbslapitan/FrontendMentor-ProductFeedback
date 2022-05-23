@@ -1,18 +1,18 @@
-<div class="feedback-container">
+<div class="feedback-container" (mouseover)="hoverColor(feedbackTitle)" (mouseout)="regularColor(feedbackTitle)">
   <div class="feedback-inner-container">
-    <h4>{{feedback.title}}</h4>
+    <h4 #feedbackTitle>{{feedback.title}}</h4>
     <p>{{feedback.details}}</p>
-    <div class="button-container">
-      <button>{{feedback.category}}</button>
-    </div>
-    <div class="upvote-container">
-      <input type="checkbox" id="upvote">
-      <label for="upvote">
-        <svg class="up-arrow"></svg>{{feedback.upvotes}}</label>
-    </div>
-    <div class="comment-container">
-      <img src="../../../../assets/shared/icon-comments.svg" alt="Number of Comments">
-      <span>2</span>
+    <button>{{feedback.category}}</button>
+    <div class="counts">
+      <div class="upvote-container">
+        <input type="checkbox" id="upvote">
+        <label for="upvote">
+          <svg class="up-arrow"></svg>{{feedback.upvotes}}</label>
+      </div>
+      <div class="comment-container">
+        <img src="../../../../assets/shared/icon-comments.svg" alt="Number of Comments">
+        <span>2</span>
+      </div>
     </div>
   </div>
 </div>

@@ -15,4 +15,11 @@ export class FeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  hoverColor(title: HTMLHeadingElement){
+    title.style.color = '#4661E6';
+  }
+
+  regularColor(title: HTMLHeadingElement){
+    title.style.color = "#3A4374";
+  }
 }

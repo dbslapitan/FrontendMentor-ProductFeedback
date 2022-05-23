@@ -20,9 +20,12 @@ const Schema = new mongoose.Schema({
     },
     status: {
       type: String,
-      default: 0
+      default: "Planned"
     },
-    details: String,
+    details: {
+      type: String,
+      required: true
+    },
     dateCreated: {
       type: Date,
       default: Date.now()

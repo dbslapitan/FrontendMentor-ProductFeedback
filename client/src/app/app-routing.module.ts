@@ -4,13 +4,15 @@ import { SignInComponent } from './pages/authentication/sign-in/sign-in.componen
 import { SignUpComponent } from './pages/authentication/sign-up/sign-up.component';
 import { CreateFeedbackComponent } from './pages/create-feedback/create-feedback.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
+import { IsNotAuthenticatedGuard } from './shared/guards/is-not-authenticated.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', redirectTo: "/", pathMatch: 'full'},
-  {path: 'create', component: CreateFeedbackComponent},
-  {path: 'signin', component: SignInComponent},
-  {path: 'signup', component: SignUpComponent}
+  {path: 'create', component: CreateFeedbackComponent, canActivate: [IsAuthenticatedGuard]},
+  {path: 'signin', component: SignInComponent, canActivate: [IsNotAuthenticatedGuard]},
+  {path: 'signup', component: SignUpComponent, canActivate: [IsNotAuthenticatedGuard]}
 ];
 
 @NgModule({

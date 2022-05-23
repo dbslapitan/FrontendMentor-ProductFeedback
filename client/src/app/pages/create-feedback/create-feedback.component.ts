@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/shared/enums/category.enum';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
 
@@ -12,13 +13,13 @@ export class CreateFeedbackComponent implements OnInit {
 
   categorySelected = Category[4];
   feedbackForm = this.formBuilder.group({
-    userId: [localStorage.getItem('userId'), Validators.required],
+    userID: [localStorage.getItem('userId'), Validators.required],
     title: ['', Validators.required],
     category: ['Feature', Validators.required],
     details: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private httpRequestServices: HttpRequestsService) { }
+  constructor(private formBuilder: FormBuilder, private httpRequestServices: HttpRequestsService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -39,6 +40,7 @@ export class CreateFeedbackComponent implements OnInit {
   onSubmit(){
     this.httpRequestServices.createAndPostFeedback(this.feedbackForm.getRawValue())
     .subscribe(response => {
+      this.router.navigate(['/']);
       console.log(response.message);
     });
   }

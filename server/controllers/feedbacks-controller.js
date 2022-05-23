@@ -23,6 +23,7 @@ module.exports.createFeedback = (req, res, next) => {
       message: "Feedback has been successfully created."
     });
   }).catch(error => {
+    console.log(error);
     res.status(500).json({
       success: false,
       message: error
