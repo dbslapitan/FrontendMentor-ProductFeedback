@@ -18,7 +18,7 @@
   </div>
 </nav>
 <main>
-  <app-sort-and-filter></app-sort-and-filter>
+  <app-sort-and-filter [feedbacks]="feedbacks"></app-sort-and-filter>
   <div *ngIf="feedbacks">
     <app-feedback *ngFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
   </div>

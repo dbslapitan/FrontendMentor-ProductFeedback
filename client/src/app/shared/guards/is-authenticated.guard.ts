@@ -14,7 +14,7 @@ export class IsAuthenticatedGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const isAuthenticated = localStorage.getItem('token') !== null ? true : false;
       if(!isAuthenticated){
-        this.router.navigate(['/']);
+        this.router.navigate(['/signin']);
       }
       return true;
   }
