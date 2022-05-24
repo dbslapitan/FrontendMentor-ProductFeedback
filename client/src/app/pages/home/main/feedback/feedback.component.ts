@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
@@ -16,7 +17,10 @@ export class FeedbackComponent implements OnInit {
   upvoteIsChecked = false;
   isLoggedIn = false;
 
-  constructor(private http: HttpRequestsService, private authService: AuthenticationService, private feedbackService: FeedbackService) { }
+  constructor(private http: HttpRequestsService, 
+    private authService: AuthenticationService, 
+    private feedbackService: FeedbackService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.authService.isLoggedInSubject.subscribe({
@@ -58,5 +62,9 @@ export class FeedbackComponent implements OnInit {
   filter(){
     this.feedbackService.filterSubject.next(this.feedback.category as string);
     this.feedbackService.updateFeedbacks();
+  }
+
+  editPage(){
+    this.router.navigate(['feedback', 'edit', this.feedback._id]);
   }
 }

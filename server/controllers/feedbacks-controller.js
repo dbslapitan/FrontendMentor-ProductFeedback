@@ -46,8 +46,38 @@ module.exports.deleteFeedback = (req, res, next) => {
     });
 };
 
-module.exports.editSingleFeedback = (req, res, next) => {
+module.exports.getSingleFeedback = (req, res, next) => {
+  Feedback.findById(req.params.id).then(response => {
+    res.status(200).json({
+      success: true,
+      data: response
+    });
+  })
+  .catch(error => {
+    res.status(404).json({
+      success: false,
+      data: error
+    });
+  });
+};
+
+module.exports.editUpvote = (req, res, next) => {
   Feedback.findByIdAndUpdate(req.body._id, {upvotes: req.body.upvotes}).then(response => {
+      res.status(200).json({
+        success: true,
+        message: `${response._id} has been successfully updated...`
+      });
+  }).catch(error => {
+    res.status(404).json({
+      success: true,
+      message: `Error occured...`
+    });
+  });
+};
+
+module.exports.editFeedback = (req, res, next) => {
+  console.log(req.body);
+  Feedback.findByIdAndUpdate(req.body._id, req.body).then(response => {
       res.status(200).json({
         success: true,
         message: `${response._id} has been successfully updated...`

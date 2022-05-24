@@ -27,6 +27,10 @@ export class HttpRequestsService {
   getAllFeedback(){
     return this.http.get<{success: boolean, data: object[]}>(environment.URI + "feedbacks");
   }
+  
+  getFeedback(id: string){
+    return this.http.get<{success: boolean, data: Feedback}>(environment.URI + 'feedbacks/' + id);
+  }
 
   checkUserAvailability(username: string){
     return this.http.get<{isFound: boolean}>(environment.URI + "users/check/" + username);
@@ -38,5 +42,9 @@ export class HttpRequestsService {
 
   updateUpvotes(feedback: Feedback){
     return this.http.post<{success: boolean, message: string}>(environment.URI + "feedbacks/edit/" + feedback._id, feedback);
+  }
+
+  editFeedback(feedback: Feedback){
+    return this.http.put<{success: boolean, message: string}>(environment.URI + "feedbacks/edit/" + feedback._id, feedback);
   }
 }

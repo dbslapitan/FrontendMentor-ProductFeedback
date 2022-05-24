@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from './pages/authentication/sign-in/sign-in.component';
 import { AuthenticationComponent } from './pages/home/navigation/authentication/authentication.component';
 import { SignUpComponent } from './pages/authentication/sign-up/sign-up.component';
+import { EditFeedbackComponent } from './pages/edit-feedback/edit-feedback.component';
+import { FeedbackDetailComponent } from './pages/feedback-detail/feedback-detail.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { SignUpComponent } from './pages/authentication/sign-up/sign-up.componen
     ToggleOptionsDirective,
     SignInComponent,
     AuthenticationComponent,
-    SignUpComponent
+    SignUpComponent,
+    EditFeedbackComponent,
+    FeedbackDetailComponent
   ],
   imports: [
     BrowserModule,

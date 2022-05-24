@@ -1,4 +1,4 @@
-<div class="feedback-container" (mouseover)="hoverColor(feedbackTitle)" (mouseout)="regularColor(feedbackTitle)">
+<div class="feedback-container" (mouseover)="hoverColor(feedbackTitle)" (mouseout)="regularColor(feedbackTitle)" (click)="editPage()">
   <div class="feedback-inner-container">
     <h4 #feedbackTitle>{{feedback.title}}</h4>
     <p>{{feedback.details}}</p>
