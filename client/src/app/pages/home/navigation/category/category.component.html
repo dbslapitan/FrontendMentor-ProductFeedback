@@ -3,47 +3,47 @@
     <ul>
       <li>
         <a>
-          <input type="radio" name="category" id="category-all" value="0" checked>
-          <label for="category-all">
+          <input type="radio" name="category" id="category-all" value="All" [checked]="filter === 'All'" #all>
+          <label for="category-all" (click)="filterSelect(all)">
             All
         </label></a>
       </li>
       <li>
         <a>
-          <input type="radio" name="category" id="category-ui" value="1">
-          <label for="category-ui">
+          <input type="radio" name="category" id="category-ui" value="UI" [checked]="filter === 'UI'"  #ui>
+          <label for="category-ui" (click)="filterSelect(ui)">
             UI
           </label>
         </a>
       </li>
       <li>
         <a>
-          <input type="radio" name="category" id="category-ux" value="2">
-          <label for="category-ux">
+          <input type="radio" name="category" id="category-ux" value="UX" [checked]="filter === 'UX'" #ux>
+          <label for="category-ux" (click)="filterSelect(ux)">
             UX
           </label>
         </a>
       </li>
       <li>
         <a>
-          <input type="radio" name="category" id="category-enhancement" value="3">
-          <label for="category-enhancement">
+          <input type="radio" name="category" id="category-enhancement" value="Enhancement" [checked]="filter === 'Enhancement'" #enhancement>
+          <label for="category-enhancement" (click)="filterSelect(enhancement)">
             Enhancement
         </label>
       </a>
         </li>
       <li>
         <a>
-          <input type="radio" name="category" id="category-bug" value="4">
-          <label for="category-bug">
+          <input type="radio" name="category" id="category-bug" value="Bug" [checked]="filter === 'Bug'" #bug>
+          <label for="category-bug" (click)="filterSelect(bug)">
             Bug
           </label>  
         </a>
         </li>
       <li>
         <a>
-          <input type="radio" name="category" id="category-feature" value="5">
-          <label for="category-feature">
+          <input type="radio" name="category" id="category-feature" value="Feature" [checked]="filter === 'Feature'" #feature>
+          <label for="category-feature" (click)="filterSelect(feature)">
           Feature
         </label>
       </a>

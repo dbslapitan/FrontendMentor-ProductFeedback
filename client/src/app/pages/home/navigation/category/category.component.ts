@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/shared/models/feedback.model';
+import { FeedbackService } from 'src/app/shared/services/feedback.service';
 
 @Component({
   selector: 'app-category',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor() { }
+  @Input() feedbacks: Feedback[] = [];
+
+  filter!: string;
+
+  constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
+    this.feedbackService.filterSubject.subscribe({
+      next: res => this.filter = res
+    });
+  }
+
+  filterSelect(input: HTMLInputElement){
+    this.feedbackService.filterSubject.next(input.value);
+    this.feedbackService.updateFeedbacks();
+    const svg = document.querySelector('.hamburger')!;
+    const navContainer = document.querySelector('.nav-container')!;
+
+    svg.classList.toggle('toggle');
+    navContainer.classList.toggle('toggle');
   }
 
 }

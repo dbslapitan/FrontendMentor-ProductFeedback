@@ -2,10 +2,10 @@
   <div class="feedback-inner-container">
     <h4 #feedbackTitle>{{feedback.title}}</h4>
     <p>{{feedback.details}}</p>
-    <button>{{feedback.category}}</button>
+    <button (click)="filter()">{{feedback.category}}</button>
     <div class="counts">
       <div class="upvote-container">
-        <input type="checkbox" [checked]="upvoteIsChecked">
+        <input type="checkbox" [checked]="upvoteIsChecked" [disabled]="!isLoggedIn">
         <label (click)="toggleUpvote()">
           <svg class="up-arrow"></svg>{{feedback.upvotes?.length}}</label>
       </div>

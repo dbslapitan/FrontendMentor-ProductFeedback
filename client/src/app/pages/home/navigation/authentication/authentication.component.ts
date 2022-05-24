@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FeedbackService } from 'src/app/shared/services/feedback.service';
 
 @Component({
   selector: 'app-authentication',
@@ -10,7 +11,7 @@ export class AuthenticationComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private feedbackService: FeedbackService) { 
   }
 
   ngOnInit(): void {
@@ -21,7 +22,8 @@ export class AuthenticationComponent implements OnInit {
     localStorage.clear();
     this.isLoggedIn = true;
 
-    console.log("after logout", this.isLoggedIn);
+    this.feedbackService.updateFeedbacks();
+
     const svg = document.querySelector('.hamburger')!;
     const navContainer = document.querySelector('.nav-container')!;
 

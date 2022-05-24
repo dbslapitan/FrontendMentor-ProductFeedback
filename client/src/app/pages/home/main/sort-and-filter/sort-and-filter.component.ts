@@ -18,15 +18,14 @@ export class SortAndFilterComponent implements OnInit {
   constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
-    this.feedbackService.feedbacks.subscribe({
-      next: response => {this.feedbacks = response;
-        console.log(this.feedbacks);
-      }
-    });
   }
 
   selectAndClose(event: Event){
-    let sortId = +(event.target as HTMLInputElement).value;
+    this.sortSelected = Sort[+(event.target as HTMLInputElement).value];
+    this.feedbackService.sortSubject.next(+(event.target as HTMLInputElement).value);
+    this.feedbackService.updateFeedbacks();
+    //this.feedbackService.updateFeedbacks();
+    /*let sortId = +(event.target as HTMLInputElement).value;
     this.sortSelected = Sort[sortId];
     if(sortId === 0){
       this.feedbacks.sort((a, b) => {
@@ -37,7 +36,7 @@ export class SortAndFilterComponent implements OnInit {
       this.feedbacks.sort((a, b) => {
         return a.upvotes?.length! - b.upvotes?.length!;
       });
-    }
+    }*/
   }
 
   closed(){
