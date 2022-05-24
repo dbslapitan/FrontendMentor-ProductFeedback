@@ -2,9 +2,13 @@ const express = require('express');
 const controller = require('../controllers/users-controller');
 const router = express.Router();
 
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({storage: storage});
+
 router.route('/')
 .get(controller.getAllUser)
-.post(controller.createUser)
+.post(upload.single('image'), controller.createUser)
 .delete(controller.deleteUser);
 
 router.route('/check/:username').get(controller.checkUser);

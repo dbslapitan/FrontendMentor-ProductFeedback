@@ -12,7 +12,10 @@ const Schema = new mongoose.Schema({
     require: [true, 'Username is Required.'],
     unique: true,
   },
-  //image: String,
+  extension: {
+    type: String,
+    required: [true, 'Extension is Required.']
+  },
   password: {
     type: String,
     required: [true, 'Password is Required.']

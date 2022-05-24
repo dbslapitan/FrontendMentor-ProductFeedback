@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { usernameExistError, usernameFormatError } from 'src/app/shared/custom-validators/username-format-error.validator';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
 
@@ -18,21 +19,21 @@ export class SignUpComponent implements OnInit {
     username: ['', [Validators.required, usernameFormatError()], usernameExistError(this.http), {updateOn: 'blur'}],
     name: ['', Validators.required],
     password: ['', Validators.required],
-    image: [null]
+    image: [null, Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpRequestsService) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpRequestsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(){
-    console.log(this.signUpForm.value);
-    /*this.http.createAndPostUser(this.signUpForm.getRawValue()).subscribe(response => {
+    this.http.createAndPostUser(this.signUpForm.getRawValue()).subscribe(response => {
       if(response.success){
-        console.log('User successfully created...')
+        console.log('User successfully created...');
+        this.router.navigate(['/signin']);
       }
-    });*/
+    });
   }
 
   onImagePick(event: Event){

@@ -2,6 +2,19 @@ const { response } = require('express');
 const User = require('../model/users-model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const AWS = require('aws-sdk');
+
+const s3Client = new AWS.S3({
+  accessKeyId: process.env.ACCESSKEY,
+  secretAccessKey: process.env.SECRETKEY,
+  region :process.env.REGION
+});
+
+const MIME = {
+  'image/jpeg': '.jpg',
+  'image/png': '.png',
+  'image/jpg': '.jpg'
+};
 
 module.exports.getAllUser = (req, res, next) => {
   User.find().then(users => {
@@ -21,7 +34,6 @@ module.exports.getAllUser = (req, res, next) => {
 module.exports.checkUser = (req, res, next) => {
   let username = req.params.username;
   User.findOne({username: username}).then(response => {
-    console.log(response);
     res.status(200).json({
       isFound: response ? true : false
     });
@@ -35,15 +47,33 @@ module.exports.checkUser = (req, res, next) => {
 }
 
 module.exports.createUser = (req, res, next) => {
-  User.create(req.body)
+  const user = {...req.body};
+  user.extension = MIME[req.file.mimetype];
+  const uploadParams = {
+    Bucket: process.env.BUCKET, 
+    Key: '', // pass key
+    Body: req.file.buffer // pass file body
+  };
+  User.create(user)
   .then(user => {
-    res.status(201).json({
-      status: "success",
-      data: user
-    })
-  }).catch(error => {
+
+    uploadParams.Key = user._id + user.extension;
+
+    s3Client.upload(uploadParams, (err, data) => {
+      if (err) {
+        res.status(500).json({
+          success: false,
+          message: err
+        });
+      }
+      res.status(201).json({
+        success: "success",
+        data: user
+      });
+    });
+    }).catch(error => {
       res.status(404).json({
-        status: "fail",
+        success: "fail",
         data: error
       });
     });
@@ -53,6 +83,7 @@ module.exports.authenticateUser = (req, res, next) => {
   User.findOne({username: req.body.username})
   .then(response => {
     if(response){
+      const presignedURL = s3Client.getSignedUrl('getObject', {Bucket: process.env.BUCKET, Key: response._id + response.extension});
       const SECRET = process.env.SECRET;
       bcrypt.compare(req.body.password, response.password).then(match => {
         const token = jwt.sign({username: response.username, name: response.name}, SECRET, {expiresIn: "2h"});
@@ -62,7 +93,8 @@ module.exports.authenticateUser = (req, res, next) => {
             userId: response._id,
             username: response.username,
             name: response.name,
-            token: token
+            token: token,
+            imageURL: presignedURL
           }
         });
       })
@@ -75,6 +107,7 @@ module.exports.authenticateUser = (req, res, next) => {
     }
   })
   .catch(error => {
+    console.log(error);
     return res.status(404).json({
       success: false,
       data: error

@@ -16,7 +16,12 @@ export class HttpRequestsService {
   }
 
   createAndPostUser(user: User){
-    return this.http.post<{success: boolean, data: object[]}>(environment.URI + "users", user);
+    const formData = new FormData();
+    formData.append("username", user.username as string);
+    formData.append("name", user.name as string);
+    formData.append("password", user.password as string);
+    formData.append("image", user.image as File, "image");
+    return this.http.post<{success: boolean, data: object[]}>(environment.URI + "users", formData);
   }
 
   getAllFeedback(){
@@ -28,7 +33,7 @@ export class HttpRequestsService {
   }
 
   authenticateUser(credentials: {username: string, password: string}){
-    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string, userId?: string}}>(environment.URI + "users/login", credentials);
+    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string, userId?: string, imageURL?: string}}>(environment.URI + "users/login", credentials);
   }
 
   updateUpvotes(feedback: Feedback){
