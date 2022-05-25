@@ -85,7 +85,7 @@ textarea{
   background-color: var(--F7F8FD-color);
   box-sizing: border-box;
   border: 0;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 0.8125rem;
   font-weight: var(--regular);
   margin-top: 1rem;

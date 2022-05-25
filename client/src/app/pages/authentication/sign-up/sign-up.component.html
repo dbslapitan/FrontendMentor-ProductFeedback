@@ -5,7 +5,9 @@
       <h1>Sign Up</h1>
       <p>Have an account? <a routerLink="/signin">Sign In</a></p>
       <label for="username">Username</label>
-      <input type="text" name="username" formControlName="username">
+      <input type="text" name="username" formControlName="username"
+      [ngStyle]="(signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)) ? {
+        'outline': '1px solid #D73737'} : {}">
       <div *ngIf="signUpForm.controls['username'].invalid && (signUpForm.controls['username'].dirty || signUpForm.controls['username'].touched)" class="outline-error">
         <div *ngIf="signUpForm.controls['username'].errors?.['required']">
           Username is required.
@@ -18,14 +20,16 @@
         </div>
       </div>
       <label for="name">Name</label>
-      <input type="text" name="name" formControlName="name">
+      <input type="text" name="name" formControlName="name" [ngStyle]="(signUpForm.controls['name'].invalid && (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)) ? {
+        'outline': '1px solid #D73737'} : {}">
       <div *ngIf="signUpForm.controls['name'].invalid && (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)" class="outline-error">
         <div *ngIf="signUpForm.controls['name'].errors?.['required']">
           First name is required.
         </div>
       </div>
       <label for="password">Password</label>
-      <input type="password" name="password" formControlName="password">
+      <input type="password" name="password" formControlName="password" [ngStyle]="(signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)) ? {
+        'outline': '1px solid #D73737'} : {}">
       <div *ngIf="signUpForm.controls['password'].invalid && (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)" class="outline-error">
         <div *ngIf="signUpForm.controls['password'].errors?.['required']">
           Password is required.

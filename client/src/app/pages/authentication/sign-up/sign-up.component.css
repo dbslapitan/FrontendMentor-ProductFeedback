@@ -6,10 +6,6 @@ input[type="password"]{
   font: caption;
 }
 
-input[type="text"]:focus, textarea:focus, input[type="password"]:focus{
-  outline: 1px solid #4661E6;
-}
-
 form a{
   color: blue;
   font-weight: var(--regular);

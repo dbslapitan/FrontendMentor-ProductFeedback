@@ -86,17 +86,27 @@ module.exports.authenticateUser = (req, res, next) => {
       const presignedURL = s3Client.getSignedUrl('getObject', {Bucket: process.env.BUCKET, Key: response._id + response.extension});
       const SECRET = process.env.SECRET;
       bcrypt.compare(req.body.password, response.password).then(match => {
-        const token = jwt.sign({username: response.username, name: response.name}, SECRET, {expiresIn: "2h"});
+        
+        console.log(match);
+        if(match){
+          const token = jwt.sign({username: response.username, name: response.name}, SECRET, {expiresIn: "2h"});
+          return res.status(200).json({
+            success: true,
+            data: {
+              userId: response._id,
+              username: response.username,
+              name: response.name,
+              token: token,
+              imageURL: presignedURL
+            }
+          });
+        }
         return res.status(200).json({
-          success: true,
+          success: false,
           data: {
-            userId: response._id,
-            username: response.username,
-            name: response.name,
-            token: token,
-            imageURL: presignedURL
           }
         });
+        
       })
     }  
     else{

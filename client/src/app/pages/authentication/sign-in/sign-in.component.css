@@ -18,10 +18,6 @@ input[type="password"]{
   font: caption;
 }
 
-input[type="text"]:focus, textarea:focus, input[type="password"]:focus{
-  outline: 1px solid #4661E6;
-}
-
 button{
   height: 2.5rem;
 }

@@ -16,6 +16,8 @@ export class FeedbackDetailComponent implements OnInit {
   isLoggedIn = false;
   isUserCreated = false;
 
+  characterCount = 250;
+
   constructor(private route: ActivatedRoute, 
     private http: HttpRequestsService,
     private router: Router,
@@ -43,5 +45,9 @@ export class FeedbackDetailComponent implements OnInit {
   }
   editFeedback(){
     this.router.navigate(['feedback', 'edit', this.feedback._id]);
+  }
+
+  countValue(event: Event){
+    this.characterCount = 250 - (event.currentTarget as HTMLInputElement).value.length;
   }
 }

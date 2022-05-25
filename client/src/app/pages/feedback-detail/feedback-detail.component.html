@@ -3,3 +3,13 @@
   <button class="blue edit-btn" *ngIf="isLoggedIn && isUserCreated" (click)="editFeedback()">Edit Feedback</button>
 </div>
 <app-feedback [feedback]="feedback"></app-feedback>
+<div class="comment-container">
+  <div class="inner-comment">
+    <h3>Add Comment</h3>
+    <textarea name="details" id="details" cols="30" rows="3" placeholder="Type your comment here" maxlength="250" (input)="countValue($event)" required></textarea>
+    <div class="count-and-post">
+      <p>{{characterCount}} Characters left</p>
+      <button class="purple">Post Comment</button>
+    </div>
+  </div>
+</div>

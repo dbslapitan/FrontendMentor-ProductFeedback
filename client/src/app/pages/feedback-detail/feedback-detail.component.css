@@ -15,3 +15,51 @@
   padding: 0 1rem;
   width: fit-content;
 }
+
+.comment-container{
+  background-color: #FFFFFF;
+  margin: auto;
+  width: 87.2%;
+}
+
+.inner-comment{
+  margin: auto;
+  width: 85.32%;
+}
+
+.inner-comment > h3 {
+  padding: 1.5rem 0;
+}
+
+textarea{
+  background-color: var(--F7F8FD-color);
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 5px;
+  font-size: 0.8125rem;
+  font-weight: var(--regular);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  resize: none;
+}
+
+.count-and-post{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+}
+
+.count-and-post > button{
+  height: 2.5rem;
+  padding: 0 1rem;
+  width: fit-content;
+
+}
+
+.count-and-post > p{
+  font-weight: var(--regular);
+  height: fit-content;
+  padding: 0 1rem;
+  width: fit-content;
+}

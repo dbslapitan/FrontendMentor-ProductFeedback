@@ -31,7 +31,6 @@ export class FeedbackComponent implements OnInit, OnChanges{
         this.isLoggedIn = response
       }
     });
-    console.log(this.feedback);
     if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
       this.upvoteIsChecked = true;
     }
