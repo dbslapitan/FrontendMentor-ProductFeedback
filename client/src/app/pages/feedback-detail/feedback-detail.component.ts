@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Feedback } from 'src/app/shared/models/feedback.model';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
 import { PagesService } from 'src/app/shared/services/pages.service';
 
@@ -18,27 +19,27 @@ export class FeedbackDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private http: HttpRequestsService,
     private router: Router,
-    private pagesService: PagesService) { }
+    private pagesService: PagesService,
+    private authService: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.authService.updateLoggedInStatus();
     this.pagesService.pagesSubject.next('Detail');
     this.route.params.subscribe(params => {
       this.http.getFeedback(params['id']).subscribe(response => {
         if(response.success){
           this.feedback = response.data;
-          if(localStorage.getItem('userId') !== null 
-          && localStorage.getItem('userId') !== undefined){
-            this.isLoggedIn = true;
-          }
-          if(localStorage.getItem('userId') === this.feedback.userID){
-            this.isUserCreated = true;
-          }
-          console.log(this.isLoggedIn);
-          console.log(this.isUserCreated);
+        if(localStorage.getItem('userId') === this.feedback.userID){
+          this.isUserCreated = true;
+        }
         }
       });
     });
-    
+    this.authService.isLoggedInSubject.subscribe({
+      next: response => {
+        this.isLoggedIn = response;
+      }
+    });
   }
   editFeedback(){
     this.router.navigate(['feedback', 'edit', this.feedback._id]);

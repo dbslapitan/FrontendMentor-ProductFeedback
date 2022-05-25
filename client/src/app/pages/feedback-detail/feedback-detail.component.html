@@ -1,5 +1,5 @@
 <div class="back-and-edit">
   <a class="back-link" routerLink="/">Go Back</a>
-  <button class="blue edit-btn" [hidden]="!isLoggedIn && !isUserCreated" (click)="editFeedback()">Edit Feedback</button>
+  <button class="blue edit-btn" *ngIf="isLoggedIn && isUserCreated" (click)="editFeedback()">Edit Feedback</button>
 </div>
 <app-feedback [feedback]="feedback"></app-feedback>

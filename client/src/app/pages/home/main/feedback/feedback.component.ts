@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
@@ -11,9 +11,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css']
 })
-export class FeedbackComponent implements OnInit {
-
-  @Input() feedback: Feedback = {};
+export class FeedbackComponent implements OnInit, OnChanges{
+  @Input() feedback!: Feedback;
   currentPage: string = '';
 
   upvoteIsChecked = false;
@@ -32,12 +31,19 @@ export class FeedbackComponent implements OnInit {
         this.isLoggedIn = response
       }
     });
+    console.log(this.feedback);
     if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
       this.upvoteIsChecked = true;
     }
     this.pagesService.pagesSubject.subscribe({
       next: page => this.currentPage = page
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
+      this.upvoteIsChecked = true;
+    }
   }
 
   hoverColor(title: HTMLHeadingElement){
