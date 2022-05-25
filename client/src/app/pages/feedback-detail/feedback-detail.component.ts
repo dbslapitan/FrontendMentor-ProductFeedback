@@ -33,6 +33,8 @@ export class FeedbackDetailComponent implements OnInit {
           if(localStorage.getItem('userId') === this.feedback.userID){
             this.isUserCreated = true;
           }
+          console.log(this.isLoggedIn);
+          console.log(this.isUserCreated);
         }
       });
     });

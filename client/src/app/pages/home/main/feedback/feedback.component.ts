@@ -26,8 +26,11 @@ export class FeedbackComponent implements OnInit {
     private pagesService: PagesService) { }
 
   ngOnInit(): void {
+    this.authService.updateLoggedInStatus();
     this.authService.isLoggedInSubject.subscribe({
-      next: response => this.isLoggedIn = response
+      next: response => {
+        this.isLoggedIn = response
+      }
     });
     if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
       this.upvoteIsChecked = true;
@@ -35,7 +38,6 @@ export class FeedbackComponent implements OnInit {
     this.pagesService.pagesSubject.subscribe({
       next: page => this.currentPage = page
     });
-    console.log(this.currentPage);
   }
 
   hoverColor(title: HTMLHeadingElement){
@@ -71,7 +73,9 @@ export class FeedbackComponent implements OnInit {
     this.feedbackService.updateFeedbacks();
   }
 
-  feedbackDetail(){
-    this.router.navigate(['feedback', this.feedback._id]);
+  feedbackDetail(event: Event, filterbtn: HTMLButtonElement, upvote: HTMLLabelElement){
+    if(event.target !== filterbtn && event.target !== upvote){
+      this.router.navigate(['feedback', this.feedback._id]);
+    }
   }
 }

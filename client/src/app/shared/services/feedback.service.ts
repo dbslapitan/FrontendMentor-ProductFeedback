@@ -11,6 +11,9 @@ export class FeedbackService {
   feedbacksSubject = new BehaviorSubject<Feedback[]>([]);
   sortSubject = new BehaviorSubject<number>(0);
   filterSubject = new BehaviorSubject<string>("All");
+  plannedFilter = new BehaviorSubject<Feedback[]>([]);
+  inProgressFilter = new BehaviorSubject<Feedback[]>([]);
+  liveFilter = new BehaviorSubject<Feedback[]>([]);
 
   constructor(private http: HttpRequestsService) {
   }
@@ -41,5 +44,20 @@ export class FeedbackService {
     this.feedbacksSubject.next(resultFeedbacks);
     });
   }
-  
+
+  roadmapFeedback(){
+    let allfeedback = [];
+    let planned = [];
+    let inProgress = [];
+    let live = [];
+    this.http.getAllFeedback().subscribe(response => {
+      allfeedback = response.data as Feedback[];
+      planned = allfeedback.filter(feedback => feedback.status === 'Planned');
+      inProgress = allfeedback.filter(feedback => feedback.status === 'In-Progress');
+      live = allfeedback.filter(feedback => feedback.status === 'Live');
+      this.plannedFilter.next(planned);
+      this.inProgressFilter.next(inProgress);
+      this.liveFilter.next(live);
+    });
+  }
 }

@@ -9,28 +9,30 @@
 <ul class="status-container">
   <li>
     <input type="radio" name="status" id="planned" checked hidden (click)="selectStatus('planned', plannedDiv, inProgressDiv, liveDiv)">
-    <label for="planned">Planned (0)</label>
+    <label for="planned">Planned ({{planned.length}})</label>
   </li>
   <li>
     <input type="radio" name="status" id="inProgress" hidden (click)="selectStatus('in-progress', plannedDiv, inProgressDiv, liveDiv)">
-    <label for="inProgress">In-Progress (0)</label>
+    <label for="inProgress">In-Progress ({{inProgress.length}})</label>
   </li>
   <li>
     <input type="radio" name="status" id="live" hidden (click)="selectStatus('live', plannedDiv, inProgressDiv, liveDiv)">
-    <label for="live">Live (0)</label>
+    <label for="live">Live ({{live.length}})</label>
   </li>
 </ul>
 
 <div class="feedback-container" #plannedDiv>
   <h3>Planned</h3>
   <p>Ideas prioritized for research</p>
-  <app-feedback></app-feedback>
+  <app-feedback *ngFor="let feedback of planned; index as i" [feedback]="planned[i]"></app-feedback>
 </div>
 <div class="feedback-container hidden" #inProgressDiv>
   <h3>In-Progress</h3>
   <p>Currently being developed</p>
+  <app-feedback *ngFor="let feedback of inProgress; index as i" [feedback]="inProgress[i]"></app-feedback>
 </div>
 <div class="feedback-container hidden" #liveDiv>
   <h3>Live</h3>
   <p>Released features</p>
+  <app-feedback *ngFor="let feedback of live; index as i" [feedback]="live[i]"></app-feedback>
 </div>

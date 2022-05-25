@@ -1,22 +1,22 @@
 <div class="feedback-container"
 (mouseover)="hoverColor(feedbackTitle)" 
 (mouseout)="regularColor(feedbackTitle)" 
-(click)="feedbackDetail()"
-[ngStyle]="{'border-top': currentPage === 'Home' && feedback.status === 'Planned' ? '6px solid #F49F85' : 
-currentPage === 'Home' && feedback.status === 'In-Progress' ? '6px solid #AD1FEA' : '6px solid #62BCFA'}">
+(click)="feedbackDetail($event, filterbtn, upvote)"
+[ngStyle]="{'border-top': currentPage === 'Roadmap' ? feedback.status === 'Planned' ? '6px solid #F49F85' : 
+feedback.status === 'In-Progress' ? '6px solid #AD1FEA' : '6px solid #62BCFA' : 'none'}">
   <div class="feedback-inner-container">
-    <div class="status-container">
+    <div class="status-container" *ngIf="currentPage === 'Roadmap'">
       <div class="colored-bullet" [ngStyle]="{'background-color': feedback.status === 'Planned' ? '#F49F85' :
       feedback.status === 'In-Progress' ? '#AD1FEA': '#62BCFA'}"></div>
       <p>{{feedback.status}}</p>
     </div>
-    <h4 #feedbackTitle>{{feedback.title}}</h4>
+    <h4 #feedbackTitle [ngStyle]="{'padding-top': currentPage !== 'Roadmap' ? '1.5rem' : 'none'}">{{feedback.title}}</h4>
     <p>{{feedback.details}}</p>
-    <button (click)="filter()">{{feedback.category}}</button>
+    <button (click)="filter()" #filterbtn>{{feedback.category}}</button>
     <div class="counts">
       <div class="upvote-container">
         <input type="checkbox" [checked]="upvoteIsChecked" [disabled]="!isLoggedIn">
-        <label (click)="toggleUpvote()">
+        <label (click)="toggleUpvote()" #upvote>
           <svg class="up-arrow"></svg>{{feedback.upvotes?.length}}</label>
       </div>
       <div class="comment-container">

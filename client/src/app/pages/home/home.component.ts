@@ -25,8 +25,7 @@ export class HomeComponent implements OnInit{
     this.feedbackService.updateFeedbacks();
     this.feedbackService.feedbacksSubject.subscribe({
       next: response => {
-        this.feedbacks = response
-      console.log(this.feedbacks)}
+        this.feedbacks = response}
     });
     /*this.httpRequestsServices.getAllFeedback().subscribe(response => {
       let allFeedback: Feedback[] = [...response.data];

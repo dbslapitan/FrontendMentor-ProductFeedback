@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Feedback } from 'src/app/shared/models/feedback.model';
+import { FeedbackService } from 'src/app/shared/services/feedback.service';
 import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
@@ -8,10 +10,25 @@ import { PagesService } from 'src/app/shared/services/pages.service';
 })
 export class RoadmapPageComponent implements OnInit {
 
-  constructor(private pagesService: PagesService) { }
+  planned: Feedback[] = [];
+  inProgress: Feedback[] = [];
+  live: Feedback[] = [];
+
+  constructor(private pagesService: PagesService,
+    private feedbackService: FeedbackService) { }
 
   ngOnInit(): void {
     this.pagesService.pagesSubject.next('Roadmap');
+    this.feedbackService.roadmapFeedback();
+    this.feedbackService.plannedFilter.subscribe({
+      next: filter => this.planned = filter
+    });
+    this.feedbackService.inProgressFilter.subscribe({
+      next: filter => this.inProgress = filter
+    });
+    this.feedbackService.liveFilter.subscribe({
+      next: filter => this.live = filter
+    });
   }
 
   selectStatus(status: string, planned: HTMLDivElement, inProgress: HTMLDivElement, live: HTMLDivElement){
