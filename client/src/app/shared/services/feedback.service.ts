@@ -40,29 +40,6 @@ export class FeedbackService {
     }
     this.feedbacksSubject.next(resultFeedbacks);
     });
-    
-    /*this.sortSubject.subscribe({
-      next: num => {sortId = num;
-        console.log("Sort: ",sortId!);}
-    });
-    this.filterSubject.subscribe({
-      next: str => {filter = str
-        console.log("Filter: ",filter!);}
-    });
-
-    this.feedbacksSubject.subscribe({
-      next: str => {resultFeebacks = str
-        console.log("Feedbacks: ", resultFeebacks!);}
-    });*/
-    /*if(sortId === 0){
-      this.feedbacks.sort((a, b) => {
-        return b.upvotes?.length! - a.upvotes?.length!;
-      });
-    }
-    else if(sortId === 1){
-      this.feedbacks.sort((a, b) => {
-        return a.upvotes?.length! - b.upvotes?.length!;
-      });
-    }*/
   }
+  
 }

@@ -1,0 +1,97 @@
+a{
+  color: #FFFFFF;
+  margin: 0;
+}
+
+button{
+  color: #F2F4FE;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  height: 2.5rem;
+  width: fit-content;
+  margin-right: 1.5rem;
+  padding: 0 1rem;
+}
+
+
+button::before{
+  content: url('../../../assets/shared/icon-plus.svg');
+}
+
+.back-and-title{
+  color: #FFFFFF;
+  display: inline-flex;
+  flex-direction: column;
+  height: 6.25rem;
+  justify-content: center;
+  margin-left: 1.5rem;
+}
+
+.status-container{
+  display: flex;
+  list-style-type: none;
+  border-bottom: 1px solid #8C92B340;
+}
+
+.status-container > li{
+  width: 33.3333%;
+  height: 3.75rem;
+}
+
+.status-container > li > label{
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 4px solid #F7F8FD;
+  display: inline-flex;
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  height: 100%;
+  justify-content: center;
+  letter-spacing: -0.0138rem;
+  line-height: 1.4615;
+  opacity: 0.4;
+  width: 100%;
+}
+
+.status-container > li > label:hover{
+  cursor: pointer;
+}
+
+input[type='radio']:checked + label{
+  opacity: 1;
+}
+
+input[id='planned']:checked + label{
+  border-bottom: 4px solid #F49F85;
+}
+
+input[id='inProgress']:checked + label{
+  border-bottom: 4px solid #AD1FEA;
+}
+
+input[id='live']:checked + label{
+  border-bottom: 4px solid #62BCFA;
+}
+
+.top-container{
+  background-color: #373F68;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.feedback-container > h3{
+  margin-left: 6.4%;
+  margin-top: 1.5rem;
+}
+
+.feedback-container > p{
+  margin-bottom: 1.5rem;
+  margin-left: 6.4%;
+
+}
+
+.hidden{
+  display: none;
+}
+

@@ -4,6 +4,7 @@ import { Feedback } from 'src/app/shared/models/feedback.model';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-feedback',
@@ -13,6 +14,7 @@ import { HttpRequestsService } from 'src/app/shared/services/http-requests.servi
 export class FeedbackComponent implements OnInit {
 
   @Input() feedback: Feedback = {};
+  currentPage: string = '';
 
   upvoteIsChecked = false;
   isLoggedIn = false;
@@ -20,7 +22,8 @@ export class FeedbackComponent implements OnInit {
   constructor(private http: HttpRequestsService, 
     private authService: AuthenticationService, 
     private feedbackService: FeedbackService,
-    private router: Router) { }
+    private router: Router,
+    private pagesService: PagesService) { }
 
   ngOnInit(): void {
     this.authService.isLoggedInSubject.subscribe({
@@ -29,6 +32,10 @@ export class FeedbackComponent implements OnInit {
     if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
       this.upvoteIsChecked = true;
     }
+    this.pagesService.pagesSubject.subscribe({
+      next: page => this.currentPage = page
+    });
+    console.log(this.currentPage);
   }
 
   hoverColor(title: HTMLHeadingElement){
@@ -64,7 +71,7 @@ export class FeedbackComponent implements OnInit {
     this.feedbackService.updateFeedbacks();
   }
 
-  editPage(){
-    this.router.navigate(['feedback', 'edit', this.feedback._id]);
+  feedbackDetail(){
+    this.router.navigate(['feedback', this.feedback._id]);
   }
 }

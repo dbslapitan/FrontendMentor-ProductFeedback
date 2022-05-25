@@ -1,0 +1,17 @@
+.back-link{
+  margin: 0;
+}
+
+.back-and-edit{
+  align-items: center;
+  display: flex;
+  height: 2.5rem;
+  justify-content: space-between;
+  margin: 1.5rem;
+}
+
+.edit-btn{
+  height: 2.5rem;
+  padding: 0 1rem;
+  width: fit-content;
+}

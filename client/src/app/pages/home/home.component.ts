@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,18 @@ export class HomeComponent implements OnInit{
   feedbacks: Feedback[] = [];
   feedbacksSubscription!: Subscription;
 
-  constructor(private httpRequestsServices: HttpRequestsService, private feedbackService: FeedbackService) {
+  constructor(private httpRequestsServices: HttpRequestsService, 
+    private feedbackService: FeedbackService,
+    private pagesService: PagesService) {
   }
 
   ngOnInit(): void {
-
+    this.pagesService.pagesSubject.next('Home');
     this.feedbackService.updateFeedbacks();
     this.feedbackService.feedbacksSubject.subscribe({
-      next: response => this.feedbacks = response
+      next: response => {
+        this.feedbacks = response
+      console.log(this.feedbacks)}
     });
     /*this.httpRequestsServices.getAllFeedback().subscribe(response => {
       let allFeedback: Feedback[] = [...response.data];

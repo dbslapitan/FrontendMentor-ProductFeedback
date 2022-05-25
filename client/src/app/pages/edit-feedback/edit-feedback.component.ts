@@ -6,6 +6,7 @@ import { Category } from 'src/app/shared/enums/category.enum';
 import { Status } from 'src/app/shared/enums/status.enum';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-edit-feedback',
@@ -28,9 +29,11 @@ export class EditFeedbackComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
     private http: HttpRequestsService,
     private fb: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private pagesService: PagesService) { }
 
   ngOnInit(): void {
+    this.pagesService.pagesSubject.next('Edit');
     this.route.params.subscribe(params => {
       this.http.getFeedback(params['id']).subscribe(response => {
         this.feedback = response.data;

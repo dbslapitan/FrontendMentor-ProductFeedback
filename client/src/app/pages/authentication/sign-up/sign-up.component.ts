@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { usernameExistError, usernameFormatError } from 'src/app/shared/custom-validators/username-format-error.validator';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,9 +23,13 @@ export class SignUpComponent implements OnInit {
     image: [null, Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpRequestsService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, 
+    private http: HttpRequestsService, 
+    private router: Router,
+    private pagesService: PagesService) { }
 
   ngOnInit(): void {
+    this.pagesService.pagesSubject.next('SignUp');
   }
 
   onSubmit(){

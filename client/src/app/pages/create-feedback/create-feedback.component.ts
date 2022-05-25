@@ -3,6 +3,7 @@ import { FormBuilder, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category } from 'src/app/shared/enums/category.enum';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-create-feedback',
@@ -19,10 +20,13 @@ export class CreateFeedbackComponent implements OnInit {
     details: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private httpRequestServices: HttpRequestsService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, 
+    private httpRequestServices: HttpRequestsService, 
+    private router: Router,
+    private pagesService: PagesService) { }
 
   ngOnInit(): void {
-
+    this.pagesService.pagesSubject.next('Create');
   }
 
   selectAndClose(event: Event){

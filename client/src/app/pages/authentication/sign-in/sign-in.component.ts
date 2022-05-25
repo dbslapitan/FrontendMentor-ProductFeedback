@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
+import { PagesService } from 'src/app/shared/services/pages.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,9 +19,14 @@ export class SignInComponent implements OnInit {
     password: ['', Validators.required]
   });
 
-  constructor(private formBuilder: FormBuilder, private http: HttpRequestsService, private router: Router, private authService: AuthenticationService) { }
+  constructor(private formBuilder: FormBuilder, 
+    private http: HttpRequestsService, 
+    private router: Router, 
+    private authService: AuthenticationService,
+    private pagesService: PagesService) { }
 
   ngOnInit(): void {
+    this.pagesService.pagesSubject.next('SignIn');
   }
 
   onSubmit(){
