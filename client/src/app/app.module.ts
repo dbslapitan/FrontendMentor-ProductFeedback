@@ -20,6 +20,7 @@ import { SignUpComponent } from './pages/authentication/sign-up/sign-up.componen
 import { EditFeedbackComponent } from './pages/edit-feedback/edit-feedback.component';
 import { FeedbackDetailComponent } from './pages/feedback-detail/feedback-detail.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
+import { CommentComponent } from './pages/feedback-detail/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.componen
     EditFeedbackComponent,
     FeedbackDetailComponent,
     RoadmapPageComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

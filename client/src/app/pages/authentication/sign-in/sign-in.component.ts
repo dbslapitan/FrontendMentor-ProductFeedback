@@ -37,6 +37,7 @@ export class SignInComponent implements OnInit {
         localStorage.setItem('token', response.data.token as string);
         localStorage.setItem('userId', response.data.userId as string);
         localStorage.setItem('imageURL', response.data.imageURL as string);
+        localStorage.setItem('extension', response.data.extension as string);
         this.authService.isLoggedInSubject.next(true);
         this.router.navigate(['../']);
       }

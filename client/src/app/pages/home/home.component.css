@@ -55,3 +55,7 @@ a:hover{
   width: 72.23%;
   z-index: -99;
 }
+
+main{
+  overflow: auto;
+}

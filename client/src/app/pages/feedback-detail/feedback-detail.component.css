@@ -1,3 +1,12 @@
+app-comment{
+  padding: 1rem 0;
+  border-bottom: 1px solid #8C92B340;
+}
+
+app-comment:last-child{
+  border-bottom: none;
+}
+
 .back-link{
   margin: 0;
 }
@@ -62,4 +71,13 @@ textarea{
   height: fit-content;
   padding: 0 1rem;
   width: fit-content;
+}
+
+.display-comments{
+  background-color: #FFFFFF;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  width: 87.2%;
 }

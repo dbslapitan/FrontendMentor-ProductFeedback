@@ -1,0 +1,47 @@
+.user-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-profile{
+  display: flex;
+}
+
+.user-name{
+  font-weight: var(--bold);
+  letter-spacing: -0.0138rem;
+}
+
+.username{
+  color: #647196;
+  font-weight: var(--regular);
+  letter-spacing: -0.0138rem;
+}
+
+.user-profile > img{
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.reply-btn{
+  background-color: #FFFFFF;
+  color: #4661E6;
+  font-size: 0.8125rem;
+  font-weight: var(--semi-bold);
+  width: fit-content;
+}
+
+.reply-btn:hover{
+  text-decoration: underline;
+}
+
+.comment{
+  color: #647196;
+  font-weight: var(--regular);
+  margin: 1rem 0 1.5rem 0;
+}
+
+.user-details{
+  margin-left: 1rem;
+}

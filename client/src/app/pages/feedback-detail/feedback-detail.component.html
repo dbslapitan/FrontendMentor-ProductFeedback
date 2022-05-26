@@ -3,13 +3,42 @@
   <button class="blue edit-btn" *ngIf="isLoggedIn && isUserCreated" (click)="editFeedback()">Edit Feedback</button>
 </div>
 <app-feedback [feedback]="feedback"></app-feedback>
+
+<div class="display-comments">
+  <h3>{{comments.length}} Comments</h3>
+
+  <app-comment *ngFor="let comment of comments; index as i" [comment]="comments[i]"></app-comment>
+
+  <!--<div class="comments-loop" *ngFor="let comment of comments; index as i">
+    <div class="user-container">
+      <div class="user-profile">
+        <img src="https://product-feedback-storage.s3.ca-central-1.amazonaws.com/628c9319ad2c3edf7070f1ee.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAX3AC3IXKEIZSGBOV%2F20220526%2Fca-central-1%2Fs3%2Faws4_request&X-Amz-Date=20220526T033834Z&X-Amz-Expires=900&X-Amz-Signature=ddefb3995009b6a9a965ebf3d1f36cc2a77b2976c137ae4e165ddfbfe3028832&X-Amz-SignedHeaders=host" alt="{{'alt for m'}}">
+        <div class="user-details">
+          <p class="user-name">{{comments[i].name}}</p>
+          <p class="username">@{{comments[i].username}}</p>
+        </div>
+      </div>
+      <button class="reply-btn" (click)="replyTo(replyArea, comments[i].username!)">Reply</button>
+    </div>
+    <p class="comment">{{comments[i].comment}}</p>
+    <div class="reply-loop">
+
+    </div>
+    <div class="reply-container">
+      <textarea name="" id="" cols="30" rows="10" #replyArea></textarea>
+      <button class="purple">Post Reply</button>
+    </div>
+
+  </div>-->
+</div>
+
 <div class="comment-container">
-  <div class="inner-comment">
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="inner-comment">
     <h3>Add Comment</h3>
-    <textarea name="details" id="details" cols="30" rows="3" placeholder="Type your comment here" maxlength="250" (input)="countValue($event)" required></textarea>
+    <textarea name="details" id="details" cols="30" rows="3" placeholder="Type your comment here" maxlength="250" (input)="countValue($event)" required formControlName="comment"></textarea>
     <div class="count-and-post">
       <p>{{characterCount}} Characters left</p>
-      <button class="purple">Post Comment</button>
+      <button type="submit" class="purple">Post Comment</button>
     </div>
-  </div>
+  </form>
 </div>

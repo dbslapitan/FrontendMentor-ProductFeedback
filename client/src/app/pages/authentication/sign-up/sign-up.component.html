@@ -37,7 +37,7 @@
       </div>
       <div class="image-container">
         <button class="image-btn" type="button" (click)="filePicker.click()">Select Image</button>
-        <input type="file" #filePicker (change)="onImagePick($event)" accept="image/jpeg, image/png" formControlName="image" hidden>
+        <input type="file" #filePicker (change)="onImagePick($event)" accept="image/jpeg, image/png" hidden>
         <img [src]="imgUrl" alt="Preview Image" *ngIf="imgUrl">
       </div>
       <p class="img-error" *ngIf="!imgIsValid && imgHasSelected">Must be an image</p>

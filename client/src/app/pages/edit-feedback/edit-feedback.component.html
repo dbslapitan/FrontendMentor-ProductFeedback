@@ -54,7 +54,7 @@
         </li>
         <li>
           <input type="radio" name="statusSelected" id="live" value="2" (change)="statusSelectAndClose($event)">
-          <label for="ux" (click)="statusClosed(statusDropdown)">Live</label>
+          <label for="live" (click)="statusClosed(statusDropdown)">Live</label>
         </li>
       </ul>
       <input type="text" class="category-display" [value]="statusSelected" readonly required>

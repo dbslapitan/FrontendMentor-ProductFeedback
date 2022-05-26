@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Feedback } from '../models/feedback.model';
 import { User } from '../models/user.model';
+import { UserComment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class HttpRequestsService {
   }
 
   authenticateUser(credentials: {username: string, password: string}){
-    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string, userId?: string, imageURL?: string}}>(environment.URI + "users/login", credentials);
+    return this.http.post<{success: boolean, data: {token?: string, username?: string, name?: string, userId?: string, imageURL?: string, extension?: string}}>(environment.URI + "users/login", credentials);
   }
 
   updateUpvotes(feedback: Feedback){
@@ -46,5 +47,13 @@ export class HttpRequestsService {
 
   editFeedback(feedback: Feedback){
     return this.http.put<{success: boolean, message: string}>(environment.URI + "feedbacks/edit/" + feedback._id, feedback);
+  }
+  
+  createAndPostComment(comment: UserComment){
+    return this.http.post<{success: boolean, message: string}>(environment.URI + 'comments', comment);
+  }
+
+  getComments(id: string){
+    return this.http.get<{success: boolean, data: UserComment[]}>(environment.URI + 'comments/' + id);
   }
 }

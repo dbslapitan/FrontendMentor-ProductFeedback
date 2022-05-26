@@ -97,7 +97,8 @@ module.exports.authenticateUser = (req, res, next) => {
               username: response.username,
               name: response.name,
               token: token,
-              imageURL: presignedURL
+              imageURL: presignedURL,
+              extension: response.extension
             }
           });
         }

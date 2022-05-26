@@ -75,7 +75,8 @@ export class EditFeedbackComponent implements OnInit {
     const newFeedback = {...this.feedback, ...this.editFeedbackForm.getRawValue()};
     this.http.editFeedback(newFeedback).subscribe(response => {
       if(response.success){
-        console.log("Feedback successfully edited...")
+        console.log("Feedback successfully edited...");
+        this.router.navigate(['../']);
       }
     });
   }
