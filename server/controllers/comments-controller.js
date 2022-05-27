@@ -29,7 +29,12 @@ module.exports.getAllComments = (req, res, next) => {
       success: true,
       data: response
     });
-  });
+  }).catch(error => {
+    res.status(500).json({
+      success: false,
+      message: error
+    });
+  });;
 };
 
 module.exports.getComments = (req, res, next) => {
@@ -38,6 +43,11 @@ module.exports.getComments = (req, res, next) => {
     let newResponse = response.map(comment => {
       let newComment = {...comment._doc};
       newComment.imageUrl = s3Client.getSignedUrl('getObject', {Bucket: process.env.BUCKET, Key: comment.userId + comment.extension});
+      newComment.replies = newComment.replies.map(reply => {
+        let newReply = {...reply._doc};
+        newReply.imageUrl = s3Client.getSignedUrl('getObject', {Bucket: process.env.BUCKET, Key: reply.userId + reply.extension});
+        return newReply;
+      });
       return newComment;
     });
 
@@ -45,7 +55,12 @@ module.exports.getComments = (req, res, next) => {
       success: true,
       data: newResponse
     });
-  });
+  }).catch(error => {
+    res.status(500).json({
+      success: false,
+      message: error
+    });
+  });;
 };
 
 module.exports.deleteComment = (req, res, next) => {
@@ -56,5 +71,26 @@ module.exports.deleteComment = (req, res, next) => {
         message: 'Successfully deleted...'
       });
     }
-  });
+  }).catch(error => {
+    res.status(500).json({
+      success: false,
+      message: error
+    });
+  });;
+};
+
+module.exports.editComment = (req, res, next) => {
+  Comment.findByIdAndUpdate(req.body._id, req.body).then(response => {
+    if(response){
+      res.status(201).json({
+        success: true,
+        message: 'Reply successfully updated...'
+      });
+    }
+  }).catch(error => {
+    res.status(500).json({
+      success: false,
+      message: error
+    });
+  });;
 };

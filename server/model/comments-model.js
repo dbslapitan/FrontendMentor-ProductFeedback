@@ -21,10 +21,36 @@ const Schema = new mongoose.Schema({
     type: String,
     required: true
   },
-  replies: {
-    type: Array,
-    default: []
-  },
+  replies: [{
+    dateCreated: {
+      type: Date,
+      default: Date.now()
+    },
+    extension: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    reply: {
+      type: String,
+      required: true
+    },
+    replyTo: {
+      type: String,
+      required: true
+    },
+    userId: {
+      type: String,
+      required: true
+    },
+    username: {
+      type: String,
+      required: true
+    }
+  }],
   extension: {
     type: String,
     required: true

@@ -1,10 +1,10 @@
 export interface Feedback{
-  _id?: String,
-  userID?: String,
-  title?: String,
-  category?: String,
-  upvotes?: String[],
-  status?: String,
-  details?: String,
+  _id?: string,
+  userID?: string,
+  title?: string,
+  category?: string,
+  upvotes?: string[],
+  status?: string,
+  details?: string,
   dateCreated?: Date
 }

@@ -1,18 +1,38 @@
-<div class="user-container">
-  <div class="user-profile">
-    <img src="" src="{{comment.imageUrl}}" alt="Profile picture of {{comment.name}}">
-    <div class="user-details">
-      <p class="user-name">{{comment.name}}</p>
-      <p class="username">{{comment.username}}</p>
+<div class="app-comment-container" #commentContainer>
+  <div class="user-container">
+    <div class="user-profile">
+      <img src="{{comment.imageUrl}}" alt="Profile picture of {{comment.name}}">
+      <div class="user-details">
+        <p class="user-name">{{comment.name}}</p>
+        <p class="username">@{{comment.username}}</p>
+      </div>
+    </div>
+    <button class="reply-btn" (click)="addReplyTo(comment.username!)">Reply</button>
+  </div>
+  <p class="comment">{{comment.comment}}</p>
+  <div class="reply-loop" *ngFor="let reply of comment.replies; index as i">
+    <div class="user-container">
+      <div class="user-profile">
+        <img src="{{comment.replies[i].imageUrl}}" alt="Profile picture of {{comment.replies[i].name}}">
+        <div class="user-details">
+          <p class="user-name">{{comment.replies[i].name}}</p>
+          <p class="username">@{{comment.replies[i].username}}</p>
+        </div>
+      </div>
+      <button class="reply-btn" (click)="addReplyTo(comment.replies[i].username)">Reply</button>
+    </div>
+    <div class="reply">
+      <span class="mention">@{{comment.replies[i].replyTo}} </span>
+      {{comment.replies[i].reply}}
     </div>
   </div>
-  <button class="reply-btn">Reply</button>
+  <form [formGroup]="replyForm" (ngSubmit)="onSubmit()" class="reply-container hide-form" #replyContainer>
+    <textarea id="replyInput" rows="3" formControlName="reply" placeholder="Type your reply here" 
+    (input)="countValue($event)" [appReplyInput]="replyContainer" [commentContainer]="commentContainer"
+    [postBtn]="postBtn"></textarea>
+    <div class="count-and-post">
+      <p>{{characterCount}} Characters left</p>
+      <button type="submit" class="purple" [disabled]="!replyForm.valid" #postBtn>Post Reply</button>
+    </div>
+  </form>
 </div>
-<p class="comment">{{comment.comment}}</p>
-<div class="reply-loop">
-
-</div>
-<!--<div class="reply-container">
-  <textarea name="" id="" cols="30" rows="10" #replyArea></textarea>
-  <button class="purple">Post Reply</button>
-</div>-->

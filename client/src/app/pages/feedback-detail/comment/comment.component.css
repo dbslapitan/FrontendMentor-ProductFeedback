@@ -1,6 +1,19 @@
+textarea{
+  background-color: var(--F7F8FD-color);
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 5px;
+  font-size: 0.8125rem;
+  font-weight: var(--regular);
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  resize: none;
+}
+
 .user-container{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .user-profile{
@@ -39,9 +52,71 @@
 .comment{
   color: #647196;
   font-weight: var(--regular);
-  margin: 1rem 0 1.5rem 0;
 }
 
 .user-details{
   margin-left: 1rem;
+}
+
+.app-comment-container{
+  padding-top: 1.5rem;
+  border-bottom: 1px solid #8C92B340;
+}
+
+:host:last-child > .app-comment-container{
+  border-bottom: none;
+}
+
+.reply-loop{
+  border-left: 1px solid #6471961A;
+  padding: 0 0 1.5rem 1.5rem;
+}
+
+.reply-loop:nth-of-type(2){
+  margin-top: 1.5rem;
+}
+
+.reply-loop:last-of-type{
+  border-left: none;
+}
+
+div.reply-loop:only-of-type{
+  border-left: 2px solid red;
+}
+
+.count-and-post{
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.count-and-post > button{
+  height: 2.5rem;
+  padding: 0 1rem;
+  width: fit-content;
+  font-size: 0.8125rem;
+}
+
+.count-and-post > p{
+  font-weight: var(--regular);
+  height: fit-content;
+  padding: 0 1rem;
+  width: fit-content;
+}
+
+form.reply-container{
+  margin-bottom: 1.5rem;
+}
+
+form.reply-container.hide-form{
+  display: none;
+}
+
+.mention{
+  color: #AD1FEA;
+  font-weight: var(--bold);
+}
+
+.reply{
+  font-size: 0.8125rem;
 }

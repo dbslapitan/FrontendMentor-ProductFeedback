@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserComment } from 'src/app/shared/models/comment.model';
@@ -18,7 +18,7 @@ export class FeedbackDetailComponent implements OnInit {
   feedback: Feedback = {};
   isLoggedIn = false;
   isUserCreated = false;
-  comments: UserComment[] = [];
+  comments!: UserComment[];
 
   commentForm = this.fb.group({
     comment: ['', Validators.required],
@@ -53,7 +53,9 @@ export class FeedbackDetailComponent implements OnInit {
       });
       this.commentService.updateComments(params['id']);
       this.commentService.commentsSubject.subscribe({
-        next: comm => this.comments = comm
+        next: comm => {
+          this.comments = comm;
+        }
       });
     });
     this.authService.isLoggedInSubject.subscribe({
@@ -80,7 +82,7 @@ export class FeedbackDetailComponent implements OnInit {
       extension: localStorage.getItem('extension')
     });
     this.http.createAndPostComment(this.commentForm.getRawValue()).subscribe(response => {
-      if(response){
+      if(response.success){
         this.commentService.updateComments(this.feedback._id as string);
         this.commentForm.reset();
       }

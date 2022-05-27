@@ -1,12 +1,3 @@
-app-comment{
-  padding: 1rem 0;
-  border-bottom: 1px solid #8C92B340;
-}
-
-app-comment:last-child{
-  border-bottom: none;
-}
-
 .back-link{
   margin: 0;
 }
@@ -63,7 +54,7 @@ textarea{
   height: 2.5rem;
   padding: 0 1rem;
   width: fit-content;
-
+  font-size: 0.8125rem;
 }
 
 .count-and-post > p{

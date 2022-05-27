@@ -1,7 +1,7 @@
 export interface User{
-  _id?: String,
-  username?: String,
-  name?: String,
-  password?: String,
+  _id?: string,
+  username?: string,
+  name?: string,
+  password?: string,
   image?: File
 }

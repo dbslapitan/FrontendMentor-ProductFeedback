@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Feedback } from '../models/feedback.model';
 import { User } from '../models/user.model';
 import { UserComment } from '../models/comment.model';
+import { identifierName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,9 @@ export class HttpRequestsService {
 
   getComments(id: string){
     return this.http.get<{success: boolean, data: UserComment[]}>(environment.URI + 'comments/' + id);
+  }
+
+  updateComment(comment: UserComment){
+    return this.http.put<{success: boolean, message: string}>(environment.URI + 'comments/' + comment._id, comment);
   }
 }

@@ -21,6 +21,7 @@ import { EditFeedbackComponent } from './pages/edit-feedback/edit-feedback.compo
 import { FeedbackDetailComponent } from './pages/feedback-detail/feedback-detail.component';
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
 import { CommentComponent } from './pages/feedback-detail/comment/comment.component';
+import { ReplyInputDirective } from './shared/directives/reply-input.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CommentComponent } from './pages/feedback-detail/comment/comment.compon
     EditFeedbackComponent,
     FeedbackDetailComponent,
     RoadmapPageComponent,
-    CommentComponent
+    CommentComponent,
+    ReplyInputDirective
   ],
   imports: [
     BrowserModule,
