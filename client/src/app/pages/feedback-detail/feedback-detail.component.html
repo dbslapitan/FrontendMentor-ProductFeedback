@@ -33,12 +33,13 @@
 </div>
 
 <div class="comment-container">
+  <h5 class="disable-comment" *ngIf="!isLoggedIn"><a routerLink="/signin">Log in</a>&nbsp;to comment.</h5>
   <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" class="inner-comment">
     <h3>Add Comment</h3>
     <textarea name="details" id="details" rows="3" placeholder="Type your comment here" maxlength="250" (input)="countValue($event)" required formControlName="comment"></textarea>
     <div class="count-and-post">
       <p>{{characterCount}} Characters left</p>
-      <button type="submit" class="purple">Post Comment</button>
+      <button type="submit" class="purple"[disabled]="!commentForm.valid">Post Comment</button>
     </div>
   </form>
 </div>

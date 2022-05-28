@@ -22,11 +22,11 @@ export class FeedbackDetailComponent implements OnInit {
 
   commentForm = this.fb.group({
     comment: ['', Validators.required],
-    username: ['',Validators.required],
-    name: ['', Validators.required],
-    feedbackId: ['', Validators.required],
-    userId: ['', Validators.required],
-    extension: ['', Validators.required]
+    username: [''],
+    name: [''],
+    feedbackId: [''],
+    userId: [''],
+    extension: ['']
   });
 
   characterCount = 250;

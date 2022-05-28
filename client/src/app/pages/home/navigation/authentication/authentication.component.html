@@ -1,7 +1,7 @@
 <div class="sign-up-container">
   <div class="sign-up-inner">
-    <a class="button-link blue" routerLink="/signup" *ngIf="isLoggedIn">Sign Up</a>
-    <p *ngIf="isLoggedIn">Have an account? <a routerLink="/signin">Sign In</a></p>
-    <button class="button-link red" (click)="clearStorage()" *ngIf="!isLoggedIn">Log Out</button>
+    <a class="button-link blue" routerLink="/signup" *ngIf="!isLoggedIn">Sign Up</a>
+    <p *ngIf="!isLoggedIn">Have an account? <a routerLink="/signin">Sign In</a></p>
+    <button class="button-link red" (click)="clearStorage()" *ngIf="isLoggedIn">Log Out</button>
   </div>
 </div>

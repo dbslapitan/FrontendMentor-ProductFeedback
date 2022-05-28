@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
 
 @Component({
@@ -11,16 +12,23 @@ export class AuthenticationComponent implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor(private router: Router, private feedbackService: FeedbackService) { 
+  constructor(private router: Router, 
+    private feedbackService: FeedbackService,
+    private authenticationService: AuthenticationService) { 
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = localStorage.getItem('userId') === null ? true : false;
+    
+    this.authenticationService.updateLoggedInStatus();
+    this.authenticationService.isLoggedInSubject.subscribe({
+      next: logInStatus => this.isLoggedIn = logInStatus
+    });
   }
 
   clearStorage(){
     localStorage.clear();
-    this.isLoggedIn = true;
+    
+    this.authenticationService.updateLoggedInStatus();
 
     this.feedbackService.updateFeedbacks();
 

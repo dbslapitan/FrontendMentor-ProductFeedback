@@ -1,4 +1,6 @@
-<div class="app-comment-container" #commentContainer>
+<div class="app-comment-container"
+[ngStyle]="comment.replies.length === 0 ? {'padding-bottom': '1.5rem'} : {}"
+ #commentContainer>
   <div class="user-container">
     <div class="user-profile">
       <img src="{{comment.imageUrl}}" alt="Profile picture of {{comment.name}}">
@@ -10,7 +12,8 @@
     <button class="reply-btn" (click)="addReplyTo(comment.username!)">Reply</button>
   </div>
   <p class="comment">{{comment.comment}}</p>
-  <div class="reply-loop" *ngFor="let reply of comment.replies; index as i">
+  <div class="reply-loop" *ngFor="let reply of comment.replies; index as i"
+  [ngStyle]="comment.replies.length === 1 ? {'position': 'static'}: {}">
     <div class="user-container">
       <div class="user-profile">
         <img src="{{comment.replies[i].imageUrl}}" alt="Profile picture of {{comment.replies[i].name}}">

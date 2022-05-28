@@ -14,5 +14,8 @@ export class AuthenticationService {
     if(localStorage.getItem('userId')){
       this.isLoggedInSubject.next(true);
     }
+    else{
+      this.isLoggedInSubject.next(false);
+    }
   }
 }

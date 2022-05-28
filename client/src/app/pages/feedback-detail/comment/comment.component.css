@@ -76,12 +76,14 @@ textarea{
   margin-top: 1.5rem;
 }
 
-.reply-loop:last-of-type{
-  border-left: none;
+.reply-loop:nth-last-of-type(2){
+  padding-bottom: 2.75rem;
 }
 
-div.reply-loop:only-of-type{
-  border-left: 2px solid red;
+.reply-loop:last-of-type{
+  border-left: none;
+  position: relative;
+  top: -1.25rem;
 }
 
 .count-and-post{
