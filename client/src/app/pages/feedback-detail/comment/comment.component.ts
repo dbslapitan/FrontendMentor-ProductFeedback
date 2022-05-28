@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserComment } from 'src/app/shared/models/comment.model';
@@ -11,11 +11,13 @@ import { HttpRequestsService } from 'src/app/shared/services/http-requests.servi
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, OnChanges {
 
   @Input() comment!: UserComment;
+  @Output() commentCountEvent = new EventEmitter<number>();
   replyTo = '';
   characterCount = 250;
+  commentCounter = 0;
 
   replyForm = this.fb.group({
     username: ['', Validators.required],
@@ -33,6 +35,18 @@ export class CommentComponent implements OnInit {
     private scroller: ViewportScroller) { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.http.getComments(this.comment.feedbackId!).subscribe(response => {
+      let comments = response.data;
+
+      comments.forEach(comment => {
+        this.commentCounter += 1;
+
+        this.commentCounter += comment.replies?.length!;
+      });
+    });
   }
 
   addReplyTo(username: string){
@@ -56,7 +70,6 @@ export class CommentComponent implements OnInit {
           this.commentService.updateComments(this.comment.feedbackId!);
         }
       });
-
       this.replyForm.reset();
     }
   }
@@ -65,4 +78,7 @@ export class CommentComponent implements OnInit {
     this.characterCount = 250 - (event.currentTarget as HTMLInputElement).value.length;
   }
 
+  updateParent(count: number){
+    this.commentCountEvent.emit(count);
+  }
 }

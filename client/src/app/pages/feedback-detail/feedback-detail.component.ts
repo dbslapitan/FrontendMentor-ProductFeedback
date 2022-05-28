@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserComment } from 'src/app/shared/models/comment.model';
@@ -19,6 +19,7 @@ export class FeedbackDetailComponent implements OnInit {
   isLoggedIn = false;
   isUserCreated = false;
   comments!: UserComment[];
+  commentCounter = 0;
 
   commentForm = this.fb.group({
     comment: ['', Validators.required],
@@ -55,6 +56,12 @@ export class FeedbackDetailComponent implements OnInit {
       this.commentService.commentsSubject.subscribe({
         next: comm => {
           this.comments = comm;
+          this.commentCounter = 0;
+          this.comments.forEach(comment => {
+            this.commentCounter += 1;
+    
+            this.commentCounter += comment.replies?.length!;
+          });
         }
       });
     });
@@ -85,6 +92,12 @@ export class FeedbackDetailComponent implements OnInit {
       if(response.success){
         this.commentService.updateComments(this.feedback._id as string);
         this.commentForm.reset();
+        this.commentCounter = 0;
+        this.comments.forEach(comment => {
+          this.commentCounter += 1;
+  
+          this.commentCounter += comment.replies?.length!;
+        });
       }
     });
   }

@@ -2,12 +2,12 @@
   <a class="back-link" routerLink="/">Go Back</a>
   <button class="blue edit-btn" *ngIf="isLoggedIn && isUserCreated" (click)="editFeedback()">Edit Feedback</button>
 </div>
-<app-feedback [feedback]="feedback"></app-feedback>
+<app-feedback [feedback]="feedback" [commentCounter]="commentCounter"></app-feedback>
 
 <div class="display-comments">
-  <h3>{{comments.length}} Comments</h3>
+  <h3 [ngStyle]="comments.length === 0 ? {'padding-bottom': '1rem'} : {}">{{commentCounter}} Comments</h3>
 
-  <app-comment *ngFor="let comment of comments; index as i" [comment]="comments[i]"></app-comment>
+  <app-comment *ngFor="let comment of comments; index as i" [comment]="comments[i]" (commentCountEvent)="commentCounter"></app-comment>
 
   <!--<div class="comments-loop" *ngFor="let comment of comments; index as i">
     <div class="user-container">

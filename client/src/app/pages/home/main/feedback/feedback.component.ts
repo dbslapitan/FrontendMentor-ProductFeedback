@@ -1,5 +1,7 @@
+import { CommaExpr } from '@angular/compiler';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserComment } from 'src/app/shared/models/comment.model';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { AuthenticationService } from 'src/app/shared/services/authentication.service';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
@@ -12,8 +14,10 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit, OnChanges{
+
   @Input() feedback!: Feedback;
   currentPage: string = '';
+  @Input() commentCounter = 0;
 
   upvoteIsChecked = false;
   isLoggedIn = false;
@@ -43,6 +47,15 @@ export class FeedbackComponent implements OnInit, OnChanges{
     if(this.feedback.upvotes?.includes(localStorage.getItem('userId') as string) && this.isLoggedIn){
       this.upvoteIsChecked = true;
     }
+    this.http.getComments(this.feedback._id!).subscribe(response => {
+      let comments = response.data;
+      this.commentCounter = 0;
+      comments.forEach(comment => {
+        this.commentCounter += 1;
+
+        this.commentCounter += comment.replies?.length!;
+      });
+    });
   }
 
   hoverColor(title: HTMLHeadingElement){
