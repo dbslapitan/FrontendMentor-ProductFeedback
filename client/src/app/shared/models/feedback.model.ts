@@ -3,8 +3,9 @@ export interface Feedback{
   userID?: string,
   title?: string,
   category?: string,
+  comments?: number,
   upvotes?: string[],
   status?: string,
   details?: string,
-  dateCreated?: Date
+  dateCreated?: Date,
 }

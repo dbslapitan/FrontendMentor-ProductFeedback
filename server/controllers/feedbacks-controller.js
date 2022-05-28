@@ -1,17 +1,61 @@
 const Feedback = require('../model/feedbacks-model');
+const Comment = require('../model/comments-model');
 
-module.exports.getAllFeedback = (req, res, next) => {
-  Feedback.find().then(feedbacks => {
+
+module.exports.getAllFeedback = async (req, res, next) => {
+
+  const feedbacks = await Feedback.find().exec().then(feedbacks => feedbacks);
+  let newFeedbacks = feedbacks.map(async feedback => {
+    let newFeedback = {...feedback};
+    newFeedback = {...newFeedback._doc}
+    let comments = await Comment.find({feedbackId: feedback._id}).exec().then(comments => comments);
+    let commentCount = 0;
+    comments.forEach(comment => {
+      commentCount += 1;
+      commentCount += comment.replies.length;
+    });
+    newFeedback.comments = commentCount;
+    return newFeedback;
+  });
+  Promise.all(newFeedbacks).then(response => {
     res.status(200).json({
       success: true,
-      data: feedbacks
+      data: response
     });
   }).catch(error => {
+    console.log(error);
     res.status(500).json({
       success: false,
       message: error
     });
   });
+  /*Feedback.find().then(feedbacks => {
+    let newFeedbacks = [...feedbacks];
+    newFeedbacks = newFeedbacks.map( async (feedback) => {
+      let newFeedback = {...feedback};
+      newFeedback = {...feedback._doc};
+      commentCount = 0;
+      let comments = await Comment.find({feedbackId: newFeedback._id}).exec().then(comments => comments);
+      comments.forEach(comment => {
+        commentCount += 1;
+        commentCount += comment.replies.length;
+      });
+      newFeedback.comments = commentCount;
+      return newFeedback;
+    });
+    
+    console.log(newFeedbacks);
+    res.status(200).json({
+      success: true,
+      data: feedbacks
+    });
+  }).catch(error => {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: error
+    });
+  });*/
 };
 
 module.exports.createFeedback = (req, res, next) => {

@@ -29,6 +29,10 @@ const Schema = new mongoose.Schema({
     dateCreated: {
       type: Date,
       default: Date.now()
+    },
+    comments: {
+      type: Number,
+      default: 0
     }
   });
 

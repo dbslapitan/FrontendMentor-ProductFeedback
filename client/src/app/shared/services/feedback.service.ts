@@ -19,29 +19,54 @@ export class FeedbackService {
   }
 
   updateFeedbacks(){
-
     this.http.getAllFeedback().subscribe( response => {
       this.feedbacksSubject.next(response.data);
       //console.log(response.data);
       let resultFeedbacks = [...this.feedbacksSubject.getValue()];
-    let sortId = this.sortSubject.getValue();
-    let filter = this.filterSubject.getValue();
-    if(filter !== 'All'){
-      resultFeedbacks = resultFeedbacks.filter(feedback => {
-        return feedback.category === filter;
+
+      let withComments = resultFeedbacks.map(feedback => {
+        let newFeedback = {...feedback};
+        this.http.getComments(feedback._id!).subscribe(response => {
+          let comments = [...response.data];
+          let commentCount = 0;
+          comments.forEach(comment => {
+            commentCount += 1;
+            commentCount += comment.replies?.length!;
+          });
+          newFeedback.comments = commentCount;
+        });
+        return newFeedback;
       });
-    }
-    if(sortId === 0){
-      resultFeedbacks.sort((a, b) => {
-        return b.upvotes?.length! - a.upvotes?.length!;
-      });
-    }
-    else if(sortId === 1){
-      resultFeedbacks.sort((a, b) => {
-        return a.upvotes?.length! - b.upvotes?.length!;
-      });
-    }
-    this.feedbacksSubject.next(resultFeedbacks);
+      let sortId = this.sortSubject.getValue();
+      let filter = this.filterSubject.getValue();
+      this.feedbacksSubject.next(withComments);
+      let allfeedbacks = [...this.feedbacksSubject.getValue()];
+      if(filter !== 'All'){
+        allfeedbacks = allfeedbacks!.filter(feedback => {
+          return feedback.category === filter;
+        });
+      }
+      if(sortId === 0){
+        allfeedbacks.sort((a, b) => {
+          return b.upvotes?.length! - a.upvotes?.length!;
+        });
+      }
+      else if(sortId === 1){
+        allfeedbacks.sort((a, b) => {
+          return a.upvotes?.length! - b.upvotes?.length!;
+        });
+      }
+      if(sortId === 2){
+        allfeedbacks.sort((a, b) => {
+          return b.comments! - a.comments!;
+        });
+      }
+      if(sortId === 3){
+        allfeedbacks.sort((a, b) => {
+          return a.comments! - b.comments!;
+        });
+      }
+      this.feedbacksSubject.next(allfeedbacks);
     });
   }
 
