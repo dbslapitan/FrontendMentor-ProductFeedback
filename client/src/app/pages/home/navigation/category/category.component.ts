@@ -15,17 +15,20 @@ export class CategoryComponent implements OnInit {
   @Input() feedbacks: Feedback[] = [];
   history: UserHistory = {};
 
-  filter!: string;
+  filter: string = 'All';
 
   constructor(private feedbackService: FeedbackService,
     private http: HttpRequestsService,
     private authService: AuthenticationService) { }
 
   ngOnInit(): void {
-    this.http.getHistory(localStorage.getItem('userId')!).subscribe(response => {
-      this.history = response.data;
-      this.filter = response.data.filter!;
-    });
+    if(this.authService.isLoggedInSubject.getValue()){
+      this.http.getHistory(localStorage.getItem('userId')!).subscribe(response => {
+        this.history = response.data;
+        this.filter = response.data.filter!;
+      });
+    }
+    
     this.feedbackService.updateFeedbacks();
   }
 
@@ -34,7 +37,6 @@ export class CategoryComponent implements OnInit {
     if(this.authService.isLoggedInSubject.getValue()){
       this.history.filter = input.value;
       this.http.updateHistory(this.history).subscribe(response => {
-        console.log(response.message);
       });
     }
     else{

@@ -3,7 +3,6 @@ const Comment = require('../model/comments-model');
 
 
 module.exports.getAllFeedback = async (req, res, next) => {
-
   const feedbacks = await Feedback.find().exec().then(feedbacks => feedbacks);
   let newFeedbacks = feedbacks.map(async feedback => {
     let newFeedback = {...feedback};

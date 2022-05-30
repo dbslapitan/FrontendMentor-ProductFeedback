@@ -13,7 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CreateFeedbackComponent } from './pages/create-feedback/create-feedback.component';
 import { ToggleOptionsDirective } from './shared/directives/toggle-options.directive';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignInComponent } from './pages/authentication/sign-in/sign-in.component';
 import { AuthenticationComponent } from './pages/home/navigation/authentication/authentication.component';
 import { SignUpComponent } from './pages/authentication/sign-up/sign-up.component';
@@ -22,6 +22,7 @@ import { FeedbackDetailComponent } from './pages/feedback-detail/feedback-detail
 import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.component';
 import { CommentComponent } from './pages/feedback-detail/comment/comment.component';
 import { ReplyInputDirective } from './shared/directives/reply-input.directive';
+import { AuthenticationHeaderInterceptor } from './shared/services/authentication-header.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ReplyInputDirective } from './shared/directives/reply-input.directive';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [FormBuilder],
+  providers: [FormBuilder,
+  {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHeaderInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

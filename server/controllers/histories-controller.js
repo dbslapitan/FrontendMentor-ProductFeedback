@@ -12,7 +12,6 @@ module.exports.getAllHistory = (req, res, next) => {
 module.exports.getHistory = (req, res, next) => {
   History.findOne({userId: req.params.id}).then(history => {
     if(history){
-      console.log(history);
       res.status(200).json({
         success: true,
         data: history
