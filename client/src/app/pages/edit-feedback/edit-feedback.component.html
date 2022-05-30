@@ -1,8 +1,8 @@
-<a class="back-link" routerLink="/">Go Back</a>
+<a class="back-link" [routerLink]="['/feedback', feedback._id!]">Go Back</a>
 <div class="form-container">
   <svg class="new-feedback"></svg>
   <form class="center-items" [formGroup]="editFeedbackForm" (ngSubmit)="saveChanges()">
-    <h3>Create New Feedback</h3>
+    <h3>Editing '{{feedback.title}}'</h3>
     <label for="title">Feedback Title</label>
     <p>Add a short, descriptive headline</p>
     <input type="text" name="title" id="title" formControlName="title" required>
@@ -68,7 +68,7 @@
       </div>
     </div>
     <button class="purple" type="submit" [disabled]="editFeedbackForm.invalid">Save Changes</button>
-    <button class="dark-blue">Cancel</button>
-    <button class="red">Delete</button>
+    <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
+    <button type="button" class="red" (click)="onDelete()">Delete</button>
   </form>
 </div>

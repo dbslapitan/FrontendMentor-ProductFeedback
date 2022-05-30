@@ -47,9 +47,12 @@ export class FeedbackDetailComponent implements OnInit {
       this.http.getFeedback(params['id']).subscribe(response => {
         if(response.success){
           this.feedback = response.data;
-        if(localStorage.getItem('userId') === this.feedback.userID){
-          this.isUserCreated = true;
+          if(localStorage.getItem('userId') === this.feedback.userID){
+            this.isUserCreated = true;
+          }
         }
+        else{
+          this.router.navigate(['/']);
         }
       });
       this.commentService.updateComments(params['id']);

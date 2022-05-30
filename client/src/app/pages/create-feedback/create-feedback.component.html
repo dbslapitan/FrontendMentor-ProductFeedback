@@ -48,6 +48,6 @@
       </div>
     </div>
     <button class="purple" type="submit" [disabled]="feedbackForm.invalid">Add Feedback</button>
-    <button class="dark-blue">Cancel</button>
+    <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
   </form>
 </div>

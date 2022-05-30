@@ -51,6 +51,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles/default.css",
               "src/styles/mobile.css",
               "src/styles/tablet.css",

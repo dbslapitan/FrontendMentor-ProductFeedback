@@ -23,6 +23,9 @@ import { RoadmapPageComponent } from './pages/roadmap-page/roadmap-page.componen
 import { CommentComponent } from './pages/feedback-detail/comment/comment.component';
 import { ReplyInputDirective } from './shared/directives/reply-input.directive';
 import { AuthenticationHeaderInterceptor } from './shared/services/authentication-header.interceptor';
+import { DialogBoxComponent } from './partials/dialog-box/dialog-box.component';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,17 +46,21 @@ import { AuthenticationHeaderInterceptor } from './shared/services/authenticatio
     FeedbackDetailComponent,
     RoadmapPageComponent,
     CommentComponent,
-    ReplyInputDirective
+    ReplyInputDirective,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [FormBuilder,
-  {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHeaderInterceptor, multi: true}],
+  {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHeaderInterceptor, multi: true},
+  {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

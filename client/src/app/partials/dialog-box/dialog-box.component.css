@@ -1,0 +1,13 @@
+mat-dialog-actions{
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+}
+
+button{
+  font-size: 0.8125rem;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 0 1rem;
+  height: 2.5rem;
+}

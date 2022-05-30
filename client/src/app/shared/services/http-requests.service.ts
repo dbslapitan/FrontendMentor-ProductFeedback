@@ -69,4 +69,8 @@ export class HttpRequestsService {
   updateHistory(history: UserHistory){
     return this.http.put<{success: boolean, message: string}>(environment.URI + 'histories/' + history.userId, history);
   }
+
+  deleteFeedback(id: string){
+    return this.http.delete<{success: boolean,  message: string}>(environment.URI + 'feedbacks/' + id);
+  }
 }

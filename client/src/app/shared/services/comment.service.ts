@@ -13,10 +13,12 @@ export class CommentService {
   constructor(private http: HttpRequestsService) { }
 
   updateComments(id: string){
-    this.http.getComments(id).subscribe(response => {
-      if(response){
-        this.commentsSubject.next(response.data);
-      }
-    });
+    if(id !== undefined || id !== null){
+      this.http.getComments(id).subscribe(response => {
+        if(response){
+          this.commentsSubject.next(response.data);
+        }
+      });
+    }
   }
 }

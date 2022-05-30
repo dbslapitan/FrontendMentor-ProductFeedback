@@ -1,5 +1,6 @@
 const Feedback = require('../model/feedbacks-model');
 const Comment = require('../model/comments-model');
+const { deleteModel } = require('mongoose');
 
 
 module.exports.getAllFeedback = async (req, res, next) => {
@@ -28,33 +29,6 @@ module.exports.getAllFeedback = async (req, res, next) => {
       message: error
     });
   });
-  /*Feedback.find().then(feedbacks => {
-    let newFeedbacks = [...feedbacks];
-    newFeedbacks = newFeedbacks.map( async (feedback) => {
-      let newFeedback = {...feedback};
-      newFeedback = {...feedback._doc};
-      commentCount = 0;
-      let comments = await Comment.find({feedbackId: newFeedback._id}).exec().then(comments => comments);
-      comments.forEach(comment => {
-        commentCount += 1;
-        commentCount += comment.replies.length;
-      });
-      newFeedback.comments = commentCount;
-      return newFeedback;
-    });
-    
-    console.log(newFeedbacks);
-    res.status(200).json({
-      success: true,
-      data: feedbacks
-    });
-  }).catch(error => {
-    console.log(error);
-    res.status(500).json({
-      success: false,
-      message: error
-    });
-  });*/
 };
 
 module.exports.createFeedback = (req, res, next) => {
@@ -73,27 +47,39 @@ module.exports.createFeedback = (req, res, next) => {
   });
 };
 
-module.exports.deleteFeedback = (req, res, next) => {
-  Feedback.findByIdAndDelete(req.body.id)
+module.exports.deleteFeedback = async (req, res, next) => {
+
+  Feedback.findByIdAndDelete(req.params.id)
   .then(user => {
-    res.status(201).json({
-      status: "success",
-      message: user
+    Comment.deleteMany({feedbackId: req.params.id}).then(response => {
+      res.status(201).json({
+        status: "success",
+        message: 'Feedback successfully deleted...'
+      })
     })
   }).catch(error => {
       res.status(404).json({
         status: "fail",
-        message: error
+        message: 'Unable to delete feedback...'
       })
     });
 };
 
 module.exports.getSingleFeedback = (req, res, next) => {
   Feedback.findById(req.params.id).then(response => {
-    res.status(200).json({
-      success: true,
-      data: response
-    });
+    if(response){
+      res.status(200).json({
+        success: true,
+        data: response
+      });
+    }
+    else{
+      res.status(200).json({
+        success: false,
+        data: response
+      });
+    }
+    
   })
   .catch(error => {
     res.status(404).json({

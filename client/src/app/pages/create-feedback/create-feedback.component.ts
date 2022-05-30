@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { DialogBoxComponent } from 'src/app/partials/dialog-box/dialog-box.component';
 import { Category } from 'src/app/shared/enums/category.enum';
 import { HttpRequestsService } from 'src/app/shared/services/http-requests.service';
 import { PagesService } from 'src/app/shared/services/pages.service';
@@ -23,7 +25,8 @@ export class CreateFeedbackComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, 
     private httpRequestServices: HttpRequestsService, 
     private router: Router,
-    private pagesService: PagesService) { }
+    private pagesService: PagesService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.pagesService.pagesSubject.next('Create');
@@ -45,7 +48,15 @@ export class CreateFeedbackComponent implements OnInit {
     this.httpRequestServices.createAndPostFeedback(this.feedbackForm.getRawValue())
     .subscribe(response => {
       this.router.navigate(['/']);
-      console.log(response.message);
     });
+  }
+
+  onCancel(){
+    const dialogRef = this.dialog.open(DialogBoxComponent, {data: {title: 'Cancel Confirmation', message: 'Are you sure you want to cancel?'}});
+    dialogRef.afterClosed().subscribe(response => {
+      if(response){
+        this.router.navigate(['../']);
+      }
+    })
   }
 }

@@ -6,10 +6,9 @@ const checkAuth  = require('../controllers/check-auth');
 
 router.route('/')
 .get(controller.getAllFeedback)
-.post(controller.createFeedback)
-.delete(controller.deleteFeedback);
+.post(controller.createFeedback);
 
-router.route('/:id').get(controller.getSingleFeedback);
+router.route('/:id').get(controller.getSingleFeedback).delete(controller.deleteFeedback);
 
 router.route('/edit/:id').post(checkAuth, controller.editUpvote).put(checkAuth, controller.editFeedback);
 
