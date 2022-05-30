@@ -1,5 +1,5 @@
-const { response } = require('express');
 const User = require('../model/users-model');
+const History = require('../model/history-model');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const AWS = require('aws-sdk');
@@ -57,21 +57,28 @@ module.exports.createUser = (req, res, next) => {
   User.create(user)
   .then(user => {
 
-    uploadParams.Key = user._id + user.extension;
+    History.create({userId: user._id}).then(response => {
+      if(response){
+        uploadParams.Key = user._id + user.extension;
 
-    s3Client.upload(uploadParams, (err, data) => {
-      if (err) {
-        res.status(500).json({
-          success: false,
-          message: err
+        s3Client.upload(uploadParams, (err, data) => {
+          if (err) {
+            res.status(500).json({
+              success: false,
+              message: err
+            });
+          }
+          res.status(201).json({
+            success: "success",
+            data: user
+          });
         });
       }
-      res.status(201).json({
-        success: "success",
-        data: user
-      });
     });
+
+    
     }).catch(error => {
+      console.log(error);
       res.status(404).json({
         success: "fail",
         data: error

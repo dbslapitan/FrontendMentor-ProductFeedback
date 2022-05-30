@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Feedback } from '../models/feedback.model';
 import { User } from '../models/user.model';
 import { UserComment } from '../models/comment.model';
-import { identifierName } from '@angular/compiler';
+import { UserHistory } from '../models/history.model';
 
 @Injectable({
   providedIn: 'root'
@@ -60,5 +60,13 @@ export class HttpRequestsService {
 
   updateComment(comment: UserComment){
     return this.http.put<{success: boolean, message: string}>(environment.URI + 'comments/' + comment._id, comment);
+  }
+
+  getHistory(id: string){
+    return this.http.get<{success: boolean, data: UserHistory}>(environment.URI + 'histories/' + id);
+  }
+
+  updateHistory(history: UserHistory){
+    return this.http.put<{success: boolean, message: string}>(environment.URI + 'histories/' + history.userId, history);
   }
 }

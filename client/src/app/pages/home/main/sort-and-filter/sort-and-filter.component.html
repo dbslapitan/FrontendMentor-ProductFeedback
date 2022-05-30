@@ -5,19 +5,19 @@
       <svg class="down-arrow"></svg>
       <ul class="sort-button toggle" ToggleOptions>
         <li>
-          <input type="radio" name="sort" value="0" id="most-upvotes" (change)="selectAndClose($event)" checked>
+          <input type="radio" name="sort" value="0" id="most-upvotes" (change)="selectAndClose($event)" [checked]="sortSelected === 'Most Upvote'">
           <label for="most-upvotes" (click)="closed()"><span>Most Upvotes</span></label>
         </li>
         <li>
-          <input type="radio" name="sort" value="1" id="least-upvotes" (change)="selectAndClose($event)">
+          <input type="radio" name="sort" value="1" id="least-upvotes" (change)="selectAndClose($event)" [checked]="sortSelected === 'Least Upvote'">
           <label for="least-upvotes" (click)="closed()"><span>Least Upvotes</span></label>
         </li> 
         <li>
-          <input type="radio" name="sort" value="2" id="most-comments" (change)="selectAndClose($event)">
+          <input type="radio" name="sort" value="2" id="most-comments" (change)="selectAndClose($event)" [checked]="sortSelected === 'Most Comment'">
           <label for="most-comments" (click)="closed()"><span>Most Comments</span></label>
         </li>
         <li>
-          <input type="radio" name="sort" value="3" id="least-comments" (change)="selectAndClose($event)">
+          <input type="radio" name="sort" value="3" id="least-comments" (change)="selectAndClose($event)" [checked]="sortSelected === 'Least Comment'">
           <label for="least-comments" (click)="closed()"><span>Least Comments</span></label>
         </li>
       </ul>

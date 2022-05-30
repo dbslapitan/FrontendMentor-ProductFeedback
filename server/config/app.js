@@ -15,6 +15,7 @@ mongoose.connect(DB, {useNewUrlParser: true, useUnifiedTopology: true})
 const usersRouter = require('../routes/users-route');
 const feedbacksRouter = require('../routes/feedbacks-route');
 const commentsRouter = require('../routes/comments-route');
+const historiesRouter = require('../routes/histories-route');
 
 const app = express();
 
@@ -29,5 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/feedbacks', feedbacksRouter);
 app.use('/api/v1/comments', commentsRouter);
+app.use('/api/v1/histories', historiesRouter);
 
 module.exports = app;

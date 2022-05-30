@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { Feedback } from '../models/feedback.model';
+import { AuthenticationService } from './authentication.service';
 import { HttpRequestsService } from './http-requests.service';
 
 @Injectable({
@@ -15,58 +16,81 @@ export class FeedbackService {
   inProgressFilter = new BehaviorSubject<Feedback[]>([]);
   liveFilter = new BehaviorSubject<Feedback[]>([]);
 
-  constructor(private http: HttpRequestsService) {
+  constructor(private http: HttpRequestsService, private authService: AuthenticationService) {
   }
 
   updateFeedbacks(){
     this.http.getAllFeedback().subscribe( response => {
       this.feedbacksSubject.next(response.data);
-      //console.log(response.data);
       let resultFeedbacks = [...this.feedbacksSubject.getValue()];
 
-      let withComments = resultFeedbacks.map(feedback => {
-        let newFeedback = {...feedback};
-        this.http.getComments(feedback._id!).subscribe(response => {
-          let comments = [...response.data];
-          let commentCount = 0;
-          comments.forEach(comment => {
-            commentCount += 1;
-            commentCount += comment.replies?.length!;
+      if(this.authService.isLoggedInSubject.getValue()){
+        this.http.getHistory(localStorage.getItem('userId')!).subscribe(response => {
+          if(response){
+            this.sortSubject.next(response.data.sort!);
+            this.filterSubject.next(response.data.filter!);
+            let sortId = this.sortSubject.getValue();
+            let filter = this.filterSubject.getValue();
+            
+            if(filter !== 'All'){
+              resultFeedbacks = resultFeedbacks!.filter(feedback => {
+                return feedback.category === filter;
+              });
+            }
+            if(sortId === 0){
+              resultFeedbacks.sort((a, b) => {
+                return b.upvotes?.length! - a.upvotes?.length!;
+              });
+            }
+            else if(sortId === 1){
+              resultFeedbacks.sort((a, b) => {
+                return a.upvotes?.length! - b.upvotes?.length!;
+              });
+            }
+            if(sortId === 2){
+              resultFeedbacks.sort((a, b) => {
+                return b.comments! - a.comments!;
+              });
+            }
+            if(sortId === 3){
+              resultFeedbacks.sort((a, b) => {
+                return a.comments! - b.comments!;
+              });
+            }
+            this.feedbacksSubject.next(resultFeedbacks);
+          }
+        });
+      }
+      else{
+        let sortId = this.sortSubject.getValue();
+        let filter = this.filterSubject.getValue();
+        if(filter !== 'All'){
+          resultFeedbacks = resultFeedbacks!.filter(feedback => {
+            return feedback.category === filter;
           });
-          newFeedback.comments = commentCount;
-        });
-        return newFeedback;
-      });
-      let sortId = this.sortSubject.getValue();
-      let filter = this.filterSubject.getValue();
-      this.feedbacksSubject.next(withComments);
-      let allfeedbacks = [...this.feedbacksSubject.getValue()];
-      if(filter !== 'All'){
-        allfeedbacks = allfeedbacks!.filter(feedback => {
-          return feedback.category === filter;
-        });
+        }
+        if(sortId === 0){
+          resultFeedbacks.sort((a, b) => {
+            return b.upvotes?.length! - a.upvotes?.length!;
+          });
+        }
+        else if(sortId === 1){
+          resultFeedbacks.sort((a, b) => {
+            return a.upvotes?.length! - b.upvotes?.length!;
+          });
+        }
+        if(sortId === 2){
+          resultFeedbacks.sort((a, b) => {
+            return b.comments! - a.comments!;
+          });
+        }
+        if(sortId === 3){
+          resultFeedbacks.sort((a, b) => {
+            return a.comments! - b.comments!;
+          });
+        }
+        this.feedbacksSubject.next(resultFeedbacks);
       }
-      if(sortId === 0){
-        allfeedbacks.sort((a, b) => {
-          return b.upvotes?.length! - a.upvotes?.length!;
-        });
-      }
-      else if(sortId === 1){
-        allfeedbacks.sort((a, b) => {
-          return a.upvotes?.length! - b.upvotes?.length!;
-        });
-      }
-      if(sortId === 2){
-        allfeedbacks.sort((a, b) => {
-          return b.comments! - a.comments!;
-        });
-      }
-      if(sortId === 3){
-        allfeedbacks.sort((a, b) => {
-          return a.comments! - b.comments!;
-        });
-      }
-      this.feedbacksSubject.next(allfeedbacks);
     });
   }
 
