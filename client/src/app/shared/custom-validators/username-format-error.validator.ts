@@ -4,7 +4,7 @@ import { HttpRequestsService } from "../services/http-requests.service";
 
 export function usernameFormatError(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
-    return control.value.match(/^[A-Za-z0-9]+$/) ? null : {usernameFormatError: {value: control.value}};
+    return control.value.match(/^[A-Za-z0-9._]+$/) ? null : {usernameFormatError: {value: control.value}};
   };
 }
 

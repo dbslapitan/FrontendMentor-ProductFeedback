@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feedback } from 'src/app/shared/models/feedback.model';
 import { FeedbackService } from 'src/app/shared/services/feedback.service';
 import { PagesService } from 'src/app/shared/services/pages.service';
@@ -15,7 +16,8 @@ export class RoadmapPageComponent implements OnInit {
   live: Feedback[] = [];
 
   constructor(private pagesService: PagesService,
-    private feedbackService: FeedbackService) { }
+    private feedbackService: FeedbackService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.pagesService.pagesSubject.next('Roadmap');
@@ -49,6 +51,10 @@ export class RoadmapPageComponent implements OnInit {
         live.classList.contains('hidden') ? live.classList.remove('hidden') : null;
       break;
     }
+  }
+
+  addFeedback(){
+    this.router.navigate(['feedback/create']);
   }
 
 }

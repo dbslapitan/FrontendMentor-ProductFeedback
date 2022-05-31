@@ -46,6 +46,7 @@ a.back-link{
   margin-top: 2.125rem;
   text-decoration: none;
   width: 4.4794rem;
+  color: #647196;
 }
 
 a.back-link::before{
@@ -65,6 +66,11 @@ button, input, select, textarea {
 
 button{
   cursor: pointer;
+  color: #F2F4FE;
+  font-weight: var(--bold);
+  font-size: 0.8125rem;
+  border: 0;
+  border-radius: 10px;
 }
 
 button:disabled{
@@ -120,12 +126,6 @@ p{
   font-size: var(--p-font-size);
   font-weight: var(--semi-bold);
   line-height: var(--p-line-height);
-}
-
-button{
-  border: 0;
-  border-radius: 10px;
-  font-size: var(--h4-line-height);
 }
 
 input{

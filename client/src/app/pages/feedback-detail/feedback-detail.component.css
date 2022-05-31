@@ -10,6 +10,12 @@ textarea{
   resize: none;
 }
 
+button{
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+  color: #F2F4FE;
+}
+
 .back-link{
   margin: 0;
 }
