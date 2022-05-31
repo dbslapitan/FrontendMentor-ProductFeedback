@@ -4,7 +4,7 @@ a{
   display: inline-flex;
   font-size: 0.8125rem;
   font-weight: var(--bold);
-  height: 71.4286%;
+  height: 2.5rem;
   justify-content: center;
   margin-right: 6.4%;
   padding: 0 0.625rem;
@@ -98,9 +98,8 @@ li:last-of-type{
 
 .sort-and-filter-container{
   background-color: #373F68;
-  height: 8.3958%;
+  height: 3.5rem;
   width: 100%;
-  margin-bottom: 2rem;
 }
 
 .inner-container{

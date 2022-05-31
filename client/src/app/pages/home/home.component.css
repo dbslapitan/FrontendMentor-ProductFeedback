@@ -56,6 +56,36 @@ a:hover{
   z-index: -99;
 }
 
-main{
-  overflow: auto;
+cdk-virtual-scroll-viewport{
+  width: 100%;
+  height: 100%;
 }
+
+:host{
+  height: 100%;
+  display: grid;
+  grid-template-areas: 
+  "top top"
+  "middle middle"
+  "bottom bottom";
+  grid-template-rows: 
+  max-content 
+  max-content
+  1fr;
+}
+
+.top{
+  grid-area: top;
+}
+
+main{
+  box-sizing: border-box;
+  grid-area: bottom;
+  height: 100%;
+}
+
+app-sort-and-filter{
+  grid-area: middle;
+}
+
+

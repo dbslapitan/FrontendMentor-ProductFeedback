@@ -1,26 +1,28 @@
-<header>
-  <app-brand></app-brand>
-</header>
-<nav>
-  <a class="ham-container" (click)="toggleNavigation()">
-    <svg class="hamburger toggle"></svg>
-  </a>
-  <div class="nav-container toggle" ToggleNav>
-    <div class="inner-nav-container">
-      <div>
-        <app-category [feedbacks]="feedbacks"></app-category>
-        <app-road-map></app-road-map>
-      </div>
-      <div>
-        <app-authentication></app-authentication>
+<div class="top">
+  <header>
+    <app-brand></app-brand>
+  </header>
+  <nav>
+    <a class="ham-container" (click)="toggleNavigation()">
+      <svg class="hamburger toggle"></svg>
+    </a>
+    <div class="nav-container toggle" ToggleNav>
+      <div class="inner-nav-container">
+        <div>
+          <app-category [feedbacks]="feedbacks"></app-category>
+          <app-road-map></app-road-map>
+        </div>
+        <div>
+          <app-authentication></app-authentication>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>
+<app-sort-and-filter [feedbacks]="feedbacks"></app-sort-and-filter>
 <main>
-  <app-sort-and-filter [feedbacks]="feedbacks"></app-sort-and-filter>
-  <div *ngIf="feedbacks">
-    <app-feedback *ngFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
-  </div>
+  <cdk-virtual-scroll-viewport class="feedbacks-container" *ngIf="feedbacks.length !== 0" itemSize="30">
+      <app-feedback *cdkVirtualFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
+  </cdk-virtual-scroll-viewport>
   <app-no-feedback *ngIf="feedbacks.length === 0"></app-no-feedback>
 </main>

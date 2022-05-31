@@ -82,6 +82,10 @@ span{
   width: 87.2%;
 }
 
+:host:first-of-type > .feedback-container{
+  margin-top: 2rem;
+}
+
 .feedback-inner-container{
   margin: 0 auto;
   padding-bottom: 1.5rem;
