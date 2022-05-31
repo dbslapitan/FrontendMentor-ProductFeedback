@@ -1,0 +1,66 @@
+@media screen and (min-width: 767px) {
+  *{
+    position: static;
+    margin: 0;
+    padding: 0;
+  }
+  header{
+    background-image: url('../../../assets/suggestions/tablet/background-header.png');
+    border-radius: 10px;
+    height: 11.125rem;
+    margin-right: 0.625rem;
+    width: 13.9375rem;
+  }
+
+  nav{
+    width: fit-content;
+
+  }
+
+  a.ham-container{
+    display: none;
+  }
+
+  svg.hamburger.toggle{
+    display: none;
+  }
+
+  .nav-container{
+    position: static;
+    background-color: transparent;
+  }
+
+  .nav-container.toggle{
+    display: flex;
+    height: fit-content;
+    width: fit-content;
+    margin: 0;
+  }
+
+  .top{
+    display: flex;
+    justify-content: center;
+    padding: 3.5rem 0 2.5rem 0;
+  }
+
+  .inner-nav-container{
+    background-color: var(--F2F4FF-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    position: static;
+    width: fit-content;
+    z-index: 0;
+  }
+
+  .inner-nav-container > div:first-child{
+    display: inline-flex;
+    gap: 0.625rem;
+    width: fit-content;
+  }
+
+  .signup-container{
+    display: none;
+  }
+}

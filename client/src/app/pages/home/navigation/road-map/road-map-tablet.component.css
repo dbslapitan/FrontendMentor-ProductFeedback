@@ -1,0 +1,15 @@
+@media screen and (min-width: 767px) {
+  .road-map-container{
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    height: 11.125rem;
+    width: 13.9375rem;
+  }
+
+  .center-table{
+    justify-content: center;
+  }
+}

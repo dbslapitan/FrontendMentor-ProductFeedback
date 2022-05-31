@@ -8,7 +8,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css', 
+  './home-tablet.component.css']
 })
 export class HomeComponent implements OnInit{
 

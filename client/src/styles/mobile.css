@@ -1,6 +1,5 @@
 header{
   align-items: center;
-  background: #28a7ed;
   background-image: url('../assets/suggestions/mobile/background-header.png');
   background-position: top right bottom left;
   background-repeat: no-repeat;
@@ -9,3 +8,4 @@ header{
   position: relative;
   z-index: 100;
 }
+

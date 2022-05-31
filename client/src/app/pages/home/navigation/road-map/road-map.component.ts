@@ -6,7 +6,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
 @Component({
   selector: 'app-road-map',
   templateUrl: './road-map.component.html',
-  styleUrls: ['./road-map.component.css']
+  styleUrls: ['./road-map.component.css',
+  './road-map-tablet.component.css']
 })
 export class RoadMapComponent implements OnInit {
 
