@@ -82,10 +82,15 @@ main{
   box-sizing: border-box;
   grid-area: bottom;
   height: 100%;
+  padding-bottom: 3.4375rem;
 }
 
 app-sort-and-filter{
   grid-area: middle;
+}
+
+.feedbacks{
+  margin: 0 1.5rem;
 }
 
 

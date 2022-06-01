@@ -10,10 +10,12 @@ feedback.status === 'In-Progress' ? '6px solid #AD1FEA' : '6px solid #62BCFA' : 
       feedback.status === 'In-Progress' ? '#AD1FEA': '#62BCFA'}"></div>
       <p>{{feedback.status}}</p>
     </div>
-    <h4 #feedbackTitle [ngStyle]="{'padding-top': currentPage !== 'Roadmap' ? '1.5rem' : 'none'}">{{feedback.title}}</h4>
-    <p>{{feedback.details}}</p>
-    <button (click)="filter()" #filterbtn>{{feedback.category}}</button>
-    <div class="counts">
+    <div class="flex-container">
+      <div class="flex-item">
+        <h4 #feedbackTitle>{{feedback.title}}</h4>
+        <p>{{feedback.details}}</p>
+        <button (click)="filter()" #filterbtn>{{feedback.category}}</button>
+      </div>
       <div class="upvote-container">
         <input type="checkbox" [checked]="upvoteIsChecked" [disabled]="!isLoggedIn">
         <label (click)="toggleUpvote()" #upvote>

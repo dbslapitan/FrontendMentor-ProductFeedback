@@ -79,7 +79,7 @@ span{
   border-radius: 5px;
   cursor: pointer;
   margin: 0 auto 1rem auto;
-  width: 87.2%;
+  width:100%;
 }
 
 :host:first-of-type > .feedback-container{
@@ -88,13 +88,13 @@ span{
 
 .feedback-inner-container{
   margin: 0 auto;
-  padding-bottom: 1.5rem;
+  padding: 1.5rem 0;
   width: 85.0153%;
 }
 
 .comment-container{
   align-items: center;
-  display: flex;
+  display: inline-flex;
 }
 
 .button-container{
@@ -103,6 +103,8 @@ span{
 }
 
 .upvote-container{
+  margin-top: 1rem;
+  display: inline;
   height: fit-content;
   width: fit-content;
 }
@@ -137,4 +139,14 @@ span{
 
 .status-container > p{
   margin: 0;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flex-item{
+  width: 100%;
 }

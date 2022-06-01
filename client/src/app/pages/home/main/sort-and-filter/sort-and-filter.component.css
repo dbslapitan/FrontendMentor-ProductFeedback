@@ -12,12 +12,16 @@ a{
 }
 
 span{
-  color: #FFFFFF;
+  color: #F2F4FE;
   font-size: var(--p-font-size);
   font-weight: var(--regular);
   align-items: center;
   display: inline-flex;
   height: 100%;
+}
+
+h3{
+  display: none;
 }
 
 ul{
@@ -76,8 +80,7 @@ li:last-of-type{
   height: 100%;
   font-size: var(--p-font-size);
   font-weight: var(--semi-bold);
-  margin-left: 2.1333%;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   position: relative;
   user-select: none;
 }

@@ -1,5 +1,7 @@
 header{
   align-items: center;
+  background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%),
+   url('../assets/suggestions/mobile/background-header.png');
   background-image: url('../assets/suggestions/mobile/background-header.png');
   background-position: top right bottom left;
   background-repeat: no-repeat;

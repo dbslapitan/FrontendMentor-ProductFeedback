@@ -9,7 +9,8 @@ import { HttpRequestsService } from 'src/app/shared/services/http-requests.servi
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.css']
+  styleUrls: ['./comment.component.css',
+  './comment-tablet.component.css']
 })
 export class CommentComponent implements OnInit, OnChanges {
 

@@ -16,6 +16,10 @@ button{
   color: #F2F4FE;
 }
 
+main{
+  padding-bottom: 5.5rem;
+}
+
 .back-link{
   margin: 0;
 }
@@ -25,7 +29,9 @@ button{
   display: flex;
   height: 2.5rem;
   justify-content: space-between;
-  margin: 1.5rem;
+  margin: auto;
+  margin-top: 1.5rem;
+  width: 87.2%;
 }
 
 .edit-btn{
@@ -70,6 +76,7 @@ button{
   height: fit-content;
   padding: 0 1rem;
   width: fit-content;
+  color: #647196;
 }
 
 .display-comments{
@@ -91,4 +98,9 @@ button{
   justify-content: center;
   position: absolute;
   width: 100%;
+}
+
+.container-for-feedback{
+  margin: auto;
+  width: 87.2%;
 }

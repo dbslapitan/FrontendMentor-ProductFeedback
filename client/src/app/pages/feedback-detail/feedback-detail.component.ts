@@ -11,7 +11,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
 @Component({
   selector: 'app-feedback-detail',
   templateUrl: './feedback-detail.component.html',
-  styleUrls: ['./feedback-detail.component.css']
+  styleUrls: ['./feedback-detail.component.css',
+  './feedback-detail-tablet.component.css']
 })
 export class FeedbackDetailComponent implements OnInit {
 

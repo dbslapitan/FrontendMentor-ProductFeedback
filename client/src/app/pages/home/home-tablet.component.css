@@ -63,4 +63,8 @@
   .signup-container{
     display: none;
   }
+
+  main{
+    padding-bottom: 7.0625rem;
+  }
 }

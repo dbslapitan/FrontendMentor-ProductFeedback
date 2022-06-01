@@ -21,8 +21,8 @@
 </div>
 <app-sort-and-filter [feedbacks]="feedbacks"></app-sort-and-filter>
 <main>
-  <cdk-virtual-scroll-viewport class="feedbacks-container" *ngIf="feedbacks.length !== 0" itemSize="30">
-      <app-feedback *cdkVirtualFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
-  </cdk-virtual-scroll-viewport>
+  <div class="feedbacks">
+    <app-feedback *ngFor="let feedback of feedbacks; index as i" [feedback]="feedbacks[i]"></app-feedback>
+  </div>
   <app-no-feedback *ngIf="feedbacks.length === 0"></app-no-feedback>
 </main>
