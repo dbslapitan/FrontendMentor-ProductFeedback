@@ -87,7 +87,7 @@ textarea{
 }
 
 .reply-loop:nth-of-type(2):last-of-type{
-  padding-bottom: 1.5rem;
+  margin-top: -1.5rem;
 }
 
 .reply-loop:nth-last-of-type(2){

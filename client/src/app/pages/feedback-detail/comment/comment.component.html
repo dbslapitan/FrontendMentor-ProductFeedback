@@ -11,9 +11,9 @@
     </div>
     <button class="reply-btn" (click)="addReplyTo(comment.username!)">Reply</button>
   </div>
-  <p class="comment">{{comment.comment}}</p>
-  <div class="reply-loop" *ngFor="let reply of comment.replies; index as i"
-  [ngStyle]="comment.replies.length === 1 ? {'position': 'static'}: {}">
+  <p class="comment"
+  [ngStyle]="comment.replies.length === 0 ? {'border-left': 'none'} : comment.replies.length === 1 ? {'padding-bottom': '3rem'} : {}">{{comment.comment}}</p>
+  <div class="reply-loop" *ngFor="let reply of comment.replies; index as i">
     <div class="user-container">
       <div class="user-profile">
         <img src="{{comment.replies[i].imageUrl}}" alt="Profile picture of {{comment.replies[i].name}}">
