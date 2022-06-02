@@ -3,6 +3,22 @@ a{
   margin: 0;
 }
 
+.back-link::before{
+  content: ' ';
+  background-color: white;
+  mask: url('../../../assets/shared/icon-arrow-left.svg');
+  height: 0.875rem;
+  width: 0.5rem;
+  mask-position: bottom;
+  mask-repeat: no-repeat;
+  mask-size: auto;
+  align-items: center;
+}
+
+.back-and-title > h3{
+  color: #FFFFFF;
+}
+
 button{
   color: #F2F4FE;
   font-size: 0.8125rem;
@@ -51,6 +67,7 @@ button::before{
   line-height: 1.4615;
   opacity: 0.4;
   width: 100%;
+  color: #3A4374;
 }
 
 .status-container > li > label:hover{
@@ -80,15 +97,15 @@ input[id='live']:checked + label{
   justify-content: space-between;
 }
 
-.feedback-container > h3{
+.roadmap-feedback > h3{
   margin-left: 6.4%;
   margin-top: 1.5rem;
 }
 
-.feedback-container > p{
+.roadmap-feedback > p{
   margin-bottom: 1.5rem;
   margin-left: 6.4%;
-
+  font-weight: var(--regular);
 }
 
 .hidden{

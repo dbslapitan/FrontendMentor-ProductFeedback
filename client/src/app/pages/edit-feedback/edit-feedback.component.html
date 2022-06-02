@@ -1,78 +1,80 @@
-<div class="link-container">
-  <a class="back-link" [routerLink]="['/feedback', feedback._id!]">Go Back</a>
-</div>
-<div class="form-container">
-  <svg class="new-feedback"></svg>
-  <form class="center-items" [formGroup]="editFeedbackForm" (ngSubmit)="saveChanges()">
-    <h3>Editing '{{feedback.title}}'</h3>
-    <label for="title">Feedback Title</label>
-    <p>Add a short, descriptive headline</p>
-    <input type="text" name="title" id="title" formControlName="title" required>
-    <div *ngIf="editFeedbackForm.controls['title'].invalid && (editFeedbackForm.controls['title'].dirty || editFeedbackForm.controls['title'].touched)" class="outline-error">
-      <div *ngIf="editFeedbackForm.controls['title'].errors?.['required']">
-        Title is required.
+<main>
+  <div class="link-container">
+    <a class="back-link" [routerLink]="['/feedback', feedback._id!]">Go Back</a>
+  </div>
+  <div class="form-container">
+    <svg class="new-feedback"></svg>
+    <form class="center-items" [formGroup]="editFeedbackForm" (ngSubmit)="saveChanges()">
+      <h3>Editing '{{feedback.title}}'</h3>
+      <label for="title">Feedback Title</label>
+      <p>Add a short, descriptive headline</p>
+      <input type="text" name="title" id="title" formControlName="title" required>
+      <div *ngIf="editFeedbackForm.controls['title'].invalid && (editFeedbackForm.controls['title'].dirty || editFeedbackForm.controls['title'].touched)" class="outline-error">
+        <div *ngIf="editFeedbackForm.controls['title'].errors?.['required']">
+          Title is required.
+        </div>
       </div>
-    </div>
-    <label for="category">Category</label>
-    <p>Choose a category for your feedback</p>
-    <input type="text" [value]="categorySelected" formControlName="category" hidden>
-    <div class="category-dropdown">
-      <ul class="dropdown-list toggle" ToggleOptions #dropdown>
-        <li>
-          <input type="radio" name="categorySelect" id="feature" value="4" (change)="selectAndClose($event)" checked>
-          <label for="feature" (click)="closed(dropdown)">Feature</label>
-        </li>
-        <li>
-          <input type="radio" name="categorySelect" id="ui" value="0" (change)="selectAndClose($event)">
-          <label for="ui" (click)="closed(dropdown)">UI</label>
-        </li>
-        <li>
-          <input type="radio" name="categorySelect" id="ux" value="1" (change)="selectAndClose($event)">
-          <label for="ux" (click)="closed(dropdown)">UX</label>
-        </li>
-        <li>
-          <input type="radio" name="categorySelect" id="enhancement" value="2" (change)="selectAndClose($event)">
-          <label for="enhancement" (click)="closed(dropdown)">Enhancement</label>
-        </li>
-        <li>
-          <input type="radio" name="categorySelect" id="bug" value="3" (change)="selectAndClose($event)">
-          <label for="bug" (click)="closed(dropdown)">Bug</label>
-        </li>
-      </ul>
-      <input type="text" class="category-display" [value]="categorySelected" readonly required>
-    </div>
-    <label for="category">Update Status</label>
-    <p>Change feature state</p>
-    <input type="text" [value]="statusSelected" formControlName="status" hidden>
-    <div class="category-dropdown">
-      <ul class="dropdown-list toggle" ToggleOptions #statusDropdown>
-        <li>
-          <input type="radio" name="statusSelected" id="planned" value="0" (change)="statusSelectAndClose($event)" checked>
-          <label for="planned" (click)="statusClosed(statusDropdown)">Planned</label>
-        </li>
-        <li>
-          <input type="radio" name="statusSelected" id="inProgress" value="1" (change)="statusSelectAndClose($event)">
-          <label for="inProgress" (click)="statusClosed(statusDropdown)">In-Progress</label>
-        </li>
-        <li>
-          <input type="radio" name="statusSelected" id="live" value="2" (change)="statusSelectAndClose($event)">
-          <label for="live" (click)="statusClosed(statusDropdown)">Live</label>
-        </li>
-      </ul>
-      <input type="text" class="category-display" [value]="statusSelected" readonly required>
-    </div>
-    <label for="details">Feedback Detail</label>
-    <p>Include any specific comments on what should be improved, added, etc.</p>
-    <textarea name="details" id="details" cols="30" rows="5" formControlName="details" required></textarea>
-    <div *ngIf="editFeedbackForm.controls['details'].invalid && (editFeedbackForm.controls['details'].dirty || editFeedbackForm.controls['details'].touched)" class="outline-error">
-      <div *ngIf="editFeedbackForm.controls['details'].errors?.['required']">
-        Details is required.
+      <label for="category">Category</label>
+      <p>Choose a category for your feedback</p>
+      <input type="text" [value]="categorySelected" formControlName="category" hidden>
+      <div class="category-dropdown">
+        <ul class="dropdown-list toggle" ToggleOptions #dropdown>
+          <li>
+            <input type="radio" name="categorySelect" id="feature" value="4" (change)="selectAndClose($event)" checked>
+            <label for="feature" (click)="closed(dropdown)">Feature</label>
+          </li>
+          <li>
+            <input type="radio" name="categorySelect" id="ui" value="0" (change)="selectAndClose($event)">
+            <label for="ui" (click)="closed(dropdown)">UI</label>
+          </li>
+          <li>
+            <input type="radio" name="categorySelect" id="ux" value="1" (change)="selectAndClose($event)">
+            <label for="ux" (click)="closed(dropdown)">UX</label>
+          </li>
+          <li>
+            <input type="radio" name="categorySelect" id="enhancement" value="2" (change)="selectAndClose($event)">
+            <label for="enhancement" (click)="closed(dropdown)">Enhancement</label>
+          </li>
+          <li>
+            <input type="radio" name="categorySelect" id="bug" value="3" (change)="selectAndClose($event)">
+            <label for="bug" (click)="closed(dropdown)">Bug</label>
+          </li>
+        </ul>
+        <input type="text" class="category-display" [value]="categorySelected" readonly required>
       </div>
-    </div>
-    <div class="action-btns">
-      <button class="purple" type="submit" [disabled]="editFeedbackForm.invalid">Save Changes</button>
-      <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
-      <button type="button" class="red" (click)="onDelete()">Delete</button>
-    </div>
-  </form>
-</div>
+      <label for="category">Update Status</label>
+      <p>Change feature state</p>
+      <input type="text" [value]="statusSelected" formControlName="status" hidden>
+      <div class="category-dropdown">
+        <ul class="dropdown-list toggle" ToggleOptions #statusDropdown>
+          <li>
+            <input type="radio" name="statusSelected" id="planned" value="0" (change)="statusSelectAndClose($event)" checked>
+            <label for="planned" (click)="statusClosed(statusDropdown)">Planned</label>
+          </li>
+          <li>
+            <input type="radio" name="statusSelected" id="inProgress" value="1" (change)="statusSelectAndClose($event)">
+            <label for="inProgress" (click)="statusClosed(statusDropdown)">In-Progress</label>
+          </li>
+          <li>
+            <input type="radio" name="statusSelected" id="live" value="2" (change)="statusSelectAndClose($event)">
+            <label for="live" (click)="statusClosed(statusDropdown)">Live</label>
+          </li>
+        </ul>
+        <input type="text" class="category-display" [value]="statusSelected" readonly required>
+      </div>
+      <label for="details">Feedback Detail</label>
+      <p>Include any specific comments on what should be improved, added, etc.</p>
+      <textarea name="details" id="details" cols="30" rows="5" formControlName="details" required></textarea>
+      <div *ngIf="editFeedbackForm.controls['details'].invalid && (editFeedbackForm.controls['details'].dirty || editFeedbackForm.controls['details'].touched)" class="outline-error">
+        <div *ngIf="editFeedbackForm.controls['details'].errors?.['required']">
+          Details is required.
+        </div>
+      </div>
+      <div class="action-btns">
+        <button class="purple" type="submit" [disabled]="editFeedbackForm.invalid">Save Changes</button>
+        <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
+        <button type="button" class="red" (click)="onDelete()">Delete</button>
+      </div>
+    </form>
+  </div>
+</main>

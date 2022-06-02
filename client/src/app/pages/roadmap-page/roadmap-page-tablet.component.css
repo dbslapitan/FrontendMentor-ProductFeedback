@@ -1,3 +1,60 @@
 @media screen and (min-width: 767px) {
-  
+  .top-container{
+    width: 43.0625rem;
+    height: 7.0625rem;
+    margin: 3.5rem auto 0 auto;
+    border-radius: 10px;
+  }
+
+  .purple{
+    font-size: 0.875rem;
+    padding: 0 1.5rem;
+    height: 2.75rem;
+  }
+
+  .back-link{
+    justify-content: left;
+    font-size: 0.875rem;
+  }
+
+  .back-and-title > h3{
+    margin-top: 0.25rem;
+    font-size: 1.5rem;
+  }
+
+  .status-container{
+    display: none;
+  }
+
+  .flex-feedback{
+    display: flex;
+    width: 43.0625rem;
+    margin: 0 auto;
+    column-gap: 0.625rem;
+  }
+
+  .roadmap-feedback{
+    display: flex;
+    flex-direction: column;
+    width: 13.9375rem;
+    margin-top: 2rem;
+  }
+
+  .roadmap-feedbacks{
+    row-gap: 1rem;
+  }
+
+  .roadmap-feedback.hidden{
+    display: block;
+  }
+
+  .roadmap-feedback > h3{
+    margin: 0;
+  }
+
+  .roadmap-feedback > p{
+    margin: 0;
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+  }
 }
