@@ -50,11 +50,13 @@
 
   .roadmap-feedback > h3{
     margin: 0;
+    font-size: 0.875rem;
   }
 
   .roadmap-feedback > p{
     margin: 0;
     margin-top: 0.25rem;
     margin-bottom: 1.5rem;
+    font-size: 0.875rem;
   }
 }

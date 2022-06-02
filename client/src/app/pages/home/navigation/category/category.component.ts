@@ -29,6 +29,10 @@ export class CategoryComponent implements OnInit {
         this.filter = response.data.filter!;
       });
     }
+
+    this.feedbackService.filterSubject.subscribe({
+      next: filter => this.filter = filter
+    });
     
     this.feedbackService.updateFeedbacks();
   }
