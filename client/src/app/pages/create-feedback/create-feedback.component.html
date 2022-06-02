@@ -47,7 +47,9 @@
         Details is required.
       </div>
     </div>
-    <button class="purple" type="submit" [disabled]="feedbackForm.invalid">Add Feedback</button>
-    <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
+    <div class="action-btns">
+      <button class="purple" type="submit" [disabled]="feedbackForm.invalid">Add Feedback</button>
+      <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
+    </div>
   </form>
 </div>
