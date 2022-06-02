@@ -9,7 +9,8 @@ import { HttpRequestsService } from 'src/app/shared/services/http-requests.servi
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css', 
-  './category-tablet.component.css']
+  './category-tablet.component.css',
+  './category-desktop.component.css']
 })
 export class CategoryComponent implements OnInit {
 

@@ -1,0 +1,33 @@
+@media screen and (min-width: 1439px) {
+  table{
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  tr{
+    margin-top: 0.5rem;
+  }
+
+  tr > td:last-child > h5{
+    text-align: end;
+  }
+
+  a{
+    align-self: center;
+  }
+
+  .road-map{
+    width: 100%;
+    margin: 0;
+  }
+
+  .road-map-container{
+    width: 15.9375rem;
+  }
+
+  .center-table{
+    box-sizing: border-box;
+    padding: 1.1875rem 1.5rem 1.5rem 1.5rem;
+    justify-content: flex-start;
+  }
+}

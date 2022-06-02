@@ -1,0 +1,9 @@
+@media screen and (min-width: 1439px) {
+  .sort-and-filter-container{
+    width: 100%;
+  }
+
+  a{
+    margin-right: 1rem;
+  }
+}

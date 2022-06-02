@@ -9,7 +9,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css', 
-  './home-tablet.component.css']
+  './home-tablet.component.css',
+  './home-desktop.component.css']
 })
 export class HomeComponent implements OnInit{
 

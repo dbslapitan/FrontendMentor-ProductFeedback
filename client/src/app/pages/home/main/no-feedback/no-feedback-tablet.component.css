@@ -1,0 +1,41 @@
+@media screen and (min-width: 767px) {
+  .no-feedback-container{
+    box-sizing: border-box;
+    width: 43.0625rem;
+    height: 37.5rem;
+    padding-top: 6.6875rem;
+  }
+
+  .container-group{
+    position: static;
+    height: auto;
+    width: 25.625rem;
+    margin: auto;
+  }
+
+  .no-feedback-image{
+    height: 8.5466rem;
+    width: 8.1025rem;
+    background-size: 8.1025rem 8.5466rem;
+  }
+
+  .container-group > h3{
+    font-size: 1.5rem;
+    letter-spacing: -0.0206rem;
+    margin-top: 3.3287rem;
+  }
+
+  .container-group > p{
+    font-size: 1rem;
+    letter-spacing: 0;
+    font-weight: var(--regular);
+  }
+
+  .container-group > a{
+    height: 2.75rem;
+    padding: 0 1.5rem;
+    letter-spacing: 0;
+    font-size: 0.875rem;
+    margin-top: 3rem;
+  }
+}

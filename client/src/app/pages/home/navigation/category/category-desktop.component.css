@@ -1,0 +1,13 @@
+@media screen and (min-width: 1439px) {
+
+  ul{
+    height: 7.375rem;
+    width: 11.3125rem;
+    margin: 1.5rem auto 1.5rem 1.5rem;
+  }
+
+  .category-container{
+    width: 15.9375rem;
+    height: 10.375rem;
+  }
+}

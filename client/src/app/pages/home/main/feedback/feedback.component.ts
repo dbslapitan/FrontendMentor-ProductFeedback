@@ -12,7 +12,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css',
-  './feedback-tablet.component.css']
+  './feedback-tablet.component.css',
+  './feedback-desktop.component.css']
 })
 export class FeedbackComponent implements OnInit, OnChanges{
 

@@ -11,7 +11,8 @@ import { Sort } from '../../../../shared/enums/sort.enum';
   selector: 'app-sort-and-filter',
   templateUrl: './sort-and-filter.component.html',
   styleUrls: ['./sort-and-filter.component.css', 
-  './sort-and-filter-tablet-component.css']
+  './sort-and-filter-tablet.component.css',
+  './sort-and-filter-desktop.component.css']
 })
 export class SortAndFilterComponent implements OnInit {
   

@@ -1,0 +1,55 @@
+@media screen and (min-width: 1439px) {
+  :host{
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    "top middle"
+    "top bottom";
+    grid-template-columns: max-content;
+    column-gap: 1.875rem;
+    padding-top: 5.875rem;
+    width: 69.375rem;
+    margin: auto;
+  }
+
+  header{
+    width: 15.9375rem;
+    height: 8.5625rem;
+    margin: 0;
+  }
+
+  nav{
+    width: 15.9375rem;
+  }
+
+  main{
+    width: 100%;
+  }
+
+  .inner-nav-container > div.roadmap-and-filter{
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+
+  .top{
+    grid-area: top;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    row-gap: 1.5rem;
+  }
+
+  .middle{
+    grid-area: middle;
+  }
+
+  .bottom{
+    grid-area: bottom;
+  }
+
+  .feedbacks{
+    width: 100%;
+    margin: 0;
+  }
+}
