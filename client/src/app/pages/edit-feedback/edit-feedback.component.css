@@ -8,6 +8,12 @@ button[type='submit']{
 
 h3{
   margin-bottom: 1.5rem;
+  color: #3A4374;
+}
+
+.link-container{
+  width: 87.2%;
+  margin: auto;
 }
 
 .center-items > label{
@@ -20,6 +26,7 @@ h3{
   line-height: 1.4615;
   margin-top: 1.5rem;
   width: 100%;
+  color: #3A4374;
 }
 
 li > label {
@@ -68,6 +75,7 @@ input[type="radio"]:checked + label {
 
 p{
   font-weight: var(--regular);
+  color: #3A4374;
 }
 
 svg{
@@ -75,7 +83,7 @@ svg{
   background-repeat: no-repeat;
   background-size: contain;
   height: 2.5rem;
-  left: 1rem;
+  left: 1.5rem;
   position: absolute;
   top: -1.25rem;
   width: 2.5rem;

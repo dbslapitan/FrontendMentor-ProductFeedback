@@ -2,6 +2,9 @@
 
   h3{
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5483;
+    letter-spacing: -0.0206rem;
   }
 
   p{
@@ -19,10 +22,16 @@
   .back-link{
     margin-top: 3.625rem;
     margin-bottom: 4.25rem;
+    font-size: 0.875rem;
   }
+
   .form-container{
     width: 33.75rem;
     padding-top: 3.25rem;
+  }
+
+  .link-container{
+    width: 33.75rem;
   }
 
   .new-feedback{
@@ -30,6 +39,10 @@
     height: 3.5rem;
     top: -1.75rem;
     left: 2.625rem;
+  }
+
+  .center-items{
+    margin: 0 2.625rem;
   }
 
   .center-items > label{

@@ -42,15 +42,14 @@ a.back-link{
   font-size: 0.8125rem;
   font-weight: var(--bold);
   margin-bottom: 2.5rem;
-  margin-left: 1.5rem;
   margin-top: 2.125rem;
   text-decoration: none;
-  width: 4.4794rem;
   color: #647196;
 }
 
 a.back-link::before{
   content: url('../assets/shared/icon-arrow-left.svg');
+  margin-right: 1rem;
 }
 
 a.back-link:hover{

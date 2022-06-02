@@ -80,7 +80,7 @@ svg{
   background-repeat: no-repeat;
   background-size: contain;
   height: 2.5rem;
-  left: 1.5rem;
+  left: 7.3395%;
   position: absolute;
   top: -1.25rem;
   width: 2.5rem;
@@ -100,6 +100,11 @@ textarea{
 
 ul > li:last-child{
   border-bottom: 0;
+}
+
+.link-container{
+  width: 87.2%;
+  margin: auto;
 }
 
 .form-container{

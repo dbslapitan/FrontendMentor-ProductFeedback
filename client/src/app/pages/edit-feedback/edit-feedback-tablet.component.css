@@ -1,0 +1,59 @@
+@media screen and (min-width: 767px) {
+
+  .back-link{
+    margin-top: 3.625rem;
+    margin-bottom: 4.25rem;
+    font-size: 0.875rem;
+  }
+
+  .link-container{
+    width: 33.75rem;
+    margin: auto;
+  }
+
+  .new-feedback{
+    width: 3.5rem;
+    height: 3.5rem;
+    top: -1.75rem;
+    left: 2.625rem;
+  }
+
+  .form-container{
+    width: 33.75rem;
+    padding-top: 3.25rem;
+  }
+
+  .center-items{
+    margin: 0 2.625rem;
+  }
+
+  h3{
+    margin-bottom: 3.1875rem;
+    font-size: 1.5rem;
+    letter-spacing: -0.0206rem;
+  }
+
+  .center-items > label, p, input, li > label, textarea{
+    font-size: 0.875rem;
+  }
+
+  .action-btns{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    padding: 2rem 0 2.5rem 0;
+  }
+
+  .action-btns > button{
+    font-size: 0.875rem;
+    height: 2.75rem;
+    width: fit-content;
+    margin: 0;
+    padding: 0 1.5rem;
+  }
+  
+  .action-btns > .dark-blue{
+    margin-left: auto;
+  }
+
+}

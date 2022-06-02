@@ -12,7 +12,8 @@ import { DialogBoxComponent } from 'src/app/partials/dialog-box/dialog-box.compo
 @Component({
   selector: 'app-edit-feedback',
   templateUrl: './edit-feedback.component.html',
-  styleUrls: ['./edit-feedback.component.css']
+  styleUrls: ['./edit-feedback.component.css',
+  './edit-feedback-tablet.component.css']
 })
 export class EditFeedbackComponent implements OnInit {
 

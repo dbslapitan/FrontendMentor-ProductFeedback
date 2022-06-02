@@ -1,4 +1,6 @@
-<a class="back-link" [routerLink]="['/feedback', feedback._id!]">Go Back</a>
+<div class="link-container">
+  <a class="back-link" [routerLink]="['/feedback', feedback._id!]">Go Back</a>
+</div>
 <div class="form-container">
   <svg class="new-feedback"></svg>
   <form class="center-items" [formGroup]="editFeedbackForm" (ngSubmit)="saveChanges()">
@@ -67,8 +69,10 @@
         Details is required.
       </div>
     </div>
-    <button class="purple" type="submit" [disabled]="editFeedbackForm.invalid">Save Changes</button>
-    <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
-    <button type="button" class="red" (click)="onDelete()">Delete</button>
+    <div class="action-btns">
+      <button class="purple" type="submit" [disabled]="editFeedbackForm.invalid">Save Changes</button>
+      <button type="button" class="dark-blue" (click)="onCancel()">Cancel</button>
+      <button type="button" class="red" (click)="onDelete()">Delete</button>
+    </div>
   </form>
 </div>
