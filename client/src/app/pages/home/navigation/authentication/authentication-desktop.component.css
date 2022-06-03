@@ -1,0 +1,9 @@
+@media screen and (min-width: 1439px) {
+  .alternate{
+    display: none;
+  }
+
+  .sign-up-inner{
+    display: inline;
+  }
+}

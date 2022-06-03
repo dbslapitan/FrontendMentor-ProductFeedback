@@ -84,3 +84,12 @@ img{
   font-weight: var(--regular);
   color: #D73737;
 }
+
+.link-container{
+  width: 87.2%;
+  margin: auto;
+}
+
+form > label{
+  margin-bottom: 0.5rem;
+}

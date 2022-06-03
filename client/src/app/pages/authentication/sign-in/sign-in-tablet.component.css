@@ -1,0 +1,15 @@
+@media screen and (min-width: 767px) {
+  .sign-in-content{
+    width: 33.75rem;
+    padding: 2.625rem;
+  }
+
+  form{
+    width: 100%;
+  }
+
+  .link-container{
+    width: 33.75rem;
+    margin: auto;
+  }
+}

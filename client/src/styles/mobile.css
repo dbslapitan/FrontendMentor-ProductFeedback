@@ -11,3 +11,8 @@ header{
   z-index: 100;
 }
 
+.roadmap > .roadmap-feedbacks > app-feedback > .feedback-container{
+  width: 87.2%;
+}
+
+

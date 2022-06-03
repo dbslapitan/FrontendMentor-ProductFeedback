@@ -96,7 +96,7 @@ module.exports.authenticateUser = (req, res, next) => {
         
         console.log(match);
         if(match){
-          const token = jwt.sign({username: response.username, name: response.name}, SECRET, {expiresIn: "2h"});
+          const token = jwt.sign({username: response.username, name: response.name}, SECRET);
           return res.status(200).json({
             success: true,
             data: {

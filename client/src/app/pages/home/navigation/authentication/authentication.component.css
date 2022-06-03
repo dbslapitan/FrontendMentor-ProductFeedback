@@ -24,3 +24,7 @@ p{
   font-weight: var(--regular);
   margin-top: 0.5rem;
 }
+
+.alternate{
+  display: none;
+}

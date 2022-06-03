@@ -1,0 +1,16 @@
+@media screen and (min-width: 767px) {
+  .alternate{
+    display: inline;
+    position: absolute;
+    top: -1.5rem;
+    right: 0;
+  }
+  .sign-up-inner{
+    display: none;
+  }
+
+  .button-link{
+    height: 2.75rem;
+    font-size: 1rem;
+  }
+}

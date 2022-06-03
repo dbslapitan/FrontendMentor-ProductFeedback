@@ -61,3 +61,17 @@ form p {
   margin: 0 auto;
   padding: 1.5rem;
 }
+
+.link-container{
+  width: 87.2%;
+  margin: auto;
+}
+
+form > label{
+  margin-bottom: 0.5rem;
+}
+
+.login-btn{
+  font-size: 0.8125rem;
+  font-weight: var(--bold);
+}

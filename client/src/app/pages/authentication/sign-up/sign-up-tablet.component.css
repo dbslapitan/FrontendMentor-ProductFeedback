@@ -1,0 +1,11 @@
+@media screen and (min-width: 767px) {
+  .sign-up-content{
+    width: 33.75rem;
+    padding: 2.625rem;
+  }
+  
+  .link-container{
+    width: 33.75rem;
+    margin: auto;
+  }
+}
