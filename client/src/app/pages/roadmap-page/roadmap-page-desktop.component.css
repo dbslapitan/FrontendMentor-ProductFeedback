@@ -1,0 +1,28 @@
+@media screen and (min-width: 1439px) {
+  .top-container{
+    width: 69.375rem;
+    margin-top: 4.875rem;
+  }
+
+  .flex-feedback{
+    width: 69.375rem;
+    column-gap: 1.875rem;
+  }
+
+  .roadmap-feedback{
+    width: 21.875rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .roadmap-feedback > p{
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  .roadmap-feedback > h3{
+    font-size: 1.125rem;
+    letter-spacing: -0.0156rem;
+  }
+}

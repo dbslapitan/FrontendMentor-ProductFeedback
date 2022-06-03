@@ -1,0 +1,29 @@
+@media screen and (min-width: 1439px) {
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container p{
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container{
+    width: 100%;
+  }
+
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container h4{
+    font-size: 1.125rem;
+    letter-spacing: -0.0156rem;
+  }
+
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container > .feedback-inner-container{
+    width: 100%;
+    padding: 2rem;
+    padding-top: 0;
+  }
+
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container > .feedback-inner-container > .status-container{
+    margin: 2rem 0 0.5rem 0;
+  }
+
+  .roadmap > .roadmap-feedbacks > app-feedback > .feedback-container > .feedback-inner-container > .flex-container > .flex-item > button{
+    margin: 1rem 0;
+  }
+}

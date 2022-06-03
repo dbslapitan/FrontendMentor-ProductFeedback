@@ -8,7 +8,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   selector: 'app-roadmap-page',
   templateUrl: './roadmap-page.component.html',
   styleUrls: ['./roadmap-page.component.css',
-  './roadmap-page-tablet.component.css']
+  './roadmap-page-tablet.component.css',
+  './roadmap-page-desktop.component.css']
 })
 export class RoadmapPageComponent implements OnInit {
 
