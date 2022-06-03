@@ -4,8 +4,6 @@
       <h3 *ngIf="feedbacks.length === 1">{{feedbacks.length}} Suggestion</h3>
       <h3 *ngIf="feedbacks.length !== 1">{{feedbacks.length}} Suggestions</h3>
       <div class="select-sort">
-        <span>Sort by :&nbsp;<span class="value">{{sortSelected}}</span></span>
-        <svg class="down-arrow"></svg>
         <ul class="sort-button toggle" ToggleOptions>
           <li>
             <input type="radio" name="sort" value="0" id="most-upvotes" (change)="selectAndClose($event)" [checked]="sortSelected === 'Most Upvote'">
@@ -24,6 +22,8 @@
             <label for="least-comments" (click)="closed()"><span>Least Comments</span></label>
           </li>
         </ul>
+        <span>Sort by :&nbsp;<span class="value">{{sortSelected}}</span></span>
+        <svg class="down-arrow"></svg>
       </div>
     </div>
     <a class="purple" routerLink="/feedback/create"><svg class="plus-icon"></svg>&nbsp;Add Feedback</a>

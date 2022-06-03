@@ -11,7 +11,8 @@ import { PagesService } from 'src/app/shared/services/pages.service';
   selector: 'app-create-feedback',
   templateUrl: './create-feedback.component.html',
   styleUrls: ['./create-feedback.component.css',
-  './create-feedback-tablet.component.css']
+  './create-feedback-tablet.component.css',
+  './create-feedback-desktop.component.css']
 })
 export class CreateFeedbackComponent implements OnInit {
 

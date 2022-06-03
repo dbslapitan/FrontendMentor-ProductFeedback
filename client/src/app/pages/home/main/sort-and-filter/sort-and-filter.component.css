@@ -89,16 +89,6 @@ li:last-of-type{
   cursor: pointer;
 }
 
-.down-arrow{
-  mask: url("../../../../../assets/shared/icon-arrow-down.svg");
-  background-color: #FFFFFF;
-  mask-repeat: no-repeat;
-  background-size: cover;
-  height: 8px;
-  margin-left: 0.375rem;
-  width: 10px;
-}
-
 .sort-and-filter-container{
   background-color: #373F68;
   height: 3.5rem;
@@ -130,4 +120,24 @@ li:last-of-type{
 
 .sort-button.toggle{
   display: none;
+}
+
+.sort-button.toggle ~ .down-arrow{
+  mask: url("../../../../../assets/shared/icon-arrow-down.svg");
+  background-color: #FFFFFF;
+  mask-repeat: no-repeat;
+  background-size: cover;
+  height: 8px;
+  margin-left: 0.375rem;
+  width: 10px;
+}
+
+.sort-button ~ .down-arrow{
+  mask: url("../../../../../assets/shared/icon-arrow-up.svg");
+  background-color: #FFFFFF;
+  mask-repeat: no-repeat;
+  background-size: cover;
+  height: 8px;
+  margin-left: 0.375rem;
+  width: 10px;
 }

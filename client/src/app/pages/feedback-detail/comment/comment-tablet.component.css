@@ -40,4 +40,8 @@
   .reply-container{
     padding-left: 7.75rem;
   }
+
+  .app-comment-container{
+    padding-top: 2rem;
+  }
 }

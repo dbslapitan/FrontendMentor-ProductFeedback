@@ -50,6 +50,11 @@ li{
 
 li > label:hover{
   color: var(--AD1FEA-color);
+  cursor: pointer;
+}
+
+.category-dropdown > input:hover{
+  cursor: pointer;
 }
 
 input{
@@ -135,8 +140,13 @@ ul > li:last-child{
   display: initial;
 }
 
-ul[class="dropdown-list toggle"] + .category-display::after{
+ul[class="dropdown-list toggle"] ~ .input-arrow::before{
   content: url('../../../assets/shared/icon-arrow-down.svg');
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  right: 1rem;
 }
 
 .category-dropdown{
@@ -179,6 +189,11 @@ ul[class="dropdown-list toggle"] + .category-display::after{
   display: none;
 }
 
-ul[class='dropdown-list'] + span::after{
+ul[class='dropdown-list'] ~ .input-arrow::before{
   content: url('../../../assets/shared/icon-arrow-up.svg');
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  right: 1rem;
 }

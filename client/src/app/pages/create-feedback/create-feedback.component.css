@@ -47,6 +47,7 @@ li{
 
 li > label:hover{
   color: var(--AD1FEA-color);
+  cursor: pointer;
 }
 
 input{
@@ -127,18 +128,21 @@ ul > li:last-child{
   box-sizing: border-box;
   justify-content: space-between;
   display: inline-flex;
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0 1rem;
 }
 
-.category-display:focus ~ ul {
-  display: initial;
+ul[class="dropdown-list toggle"] ~ .input-arrow::before{
+  content: url('../../../assets/shared/icon-arrow-down.svg');
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  right: 1rem;
 }
 
-ul[class="dropdown-list toggle"] + .category-display::after{
-  content: url('../../../assets/shared/icon-arrow-down.svg');
+.category-dropdown > input:hover{
+  cursor: pointer;
 }
 
 .category-dropdown{
@@ -177,6 +181,11 @@ ul[class="dropdown-list toggle"] + .category-display::after{
   display: none;
 }
 
-ul[class='dropdown-list'] + span::after{
+ul[class='dropdown-list'] ~ .input-arrow::before{
   content: url('../../../assets/shared/icon-arrow-up.svg');
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  right: 1rem;
 }

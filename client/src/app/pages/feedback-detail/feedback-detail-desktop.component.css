@@ -1,0 +1,32 @@
+@media screen and (min-width: 1439px) {
+  .back-and-edit{
+    width: 45.625rem;
+  }
+
+  .container-for-feedback{
+    width: 45.625rem;
+    box-shadow: none;
+  }
+
+  .display-comments{
+    width: 45.625rem;
+    padding: 1.5rem 2rem;
+    padding-bottom: 0;
+  }
+
+  .display-comments > h3{
+    margin-left: 0.125rem;
+  }
+
+  .comment-container{
+    width: 45.625rem;
+  }
+
+  .inner-comment > textarea{
+    width: 41.5rem;
+  }
+
+  .count-and-post{
+    width: 41.5rem;
+  }
+}
