@@ -5,7 +5,8 @@
     grid-template-areas: 
     "top middle"
     "top bottom";
-    grid-template-columns: max-content;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content 1fr;
     column-gap: 1.875rem;
     padding-top: 5.875rem;
     width: 69.375rem;
